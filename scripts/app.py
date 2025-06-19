@@ -21,7 +21,7 @@ if project_root not in sys.path:
 
 
 from config.singleton import Singleton
-from config.configuration_vars_config import ConfigVars
+from config.configuration_vars import ConfigVars
 from scripts.main import LeadGen
 
 import streamlit as st
