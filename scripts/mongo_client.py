@@ -6,7 +6,7 @@ from ast import literal_eval
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from config.singleton import Singleton
-from config.configuration_vars_config import ConfigVars
+from config.configuration_vars import ConfigVars
 
 
 class MongoDBClient(metaclass=Singleton):
