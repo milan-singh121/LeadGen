@@ -29,7 +29,7 @@ class ConfigVars(metaclass=Singleton):
         self.ghl_location_id = config["GHL"]["LOCATION_ID"]
 
         # SNOV
-        self.snov_user_id = config["KEY"]["SNOV_APIUSERID"]
+        self.snov_user_id = config["KEY"]["SNOV_API_USERID"]
         self.snov_secret_key = config["KEY"]["SNOV_API_SECRET"]
 
         # LLM
