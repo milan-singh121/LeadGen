@@ -96,7 +96,7 @@ class Snov(metaclass=Singleton):
             "companyName": company_name,
             "companySite": company_site,
             "updateContact": 1,
-            "listId": "31453364",
+            "listId": "31528934",
             "customFields[Subject1]": subject1,
             "customFields[Email1]": email1,
             "customFields[Subject2]": subject2,
