@@ -8,7 +8,8 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.singleton import Singleton
 from config.configuration_vars import ConfigVars
 from scripts.main import LeadGen
