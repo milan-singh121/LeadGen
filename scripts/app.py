@@ -9,9 +9,16 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+app_dir = os.path.dirname(os.path.abspath(__file__))
 
-project_root = os.path.abspath(os.path.dirname(__file__) + "/..")
-sys.path.insert(0, project_root)
+# Project root is one level up from scripts/
+project_root = os.path.abspath(os.path.join(app_dir, ".."))
+
+# Insert project root into sys.path (if not already there)
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+
 from config.singleton import Singleton
 from config.configuration_vars import ConfigVars
 from scripts.main import LeadGen
