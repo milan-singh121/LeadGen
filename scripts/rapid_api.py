@@ -36,7 +36,7 @@ class RapidAPI(metaclass=Singleton):
             raw_url = f"https://{raw_url}"
 
         self.base_url: str = raw_url
-        self.api_key: str = config.rapid_api_key
+        self.api_key: str = literal_eval(config.rapid_api_key)
         self.headers: Dict[str, str] = {
             "x-rapidapi-key": self.api_key,
             "x-rapidapi-host": self._extract_host(self.base_url),
