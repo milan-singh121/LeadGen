@@ -39,7 +39,7 @@ class RapidAPI(metaclass=Singleton):
         self.api_key: str = config.rapid_api_key
         self.headers: Dict[str, str] = {
             "x-rapidapi-key": self.api_key,
-            "x-rapidapi-host": self._extract_host(literal_eval(self.base_url)),
+            "x-rapidapi-host": self._extract_host(self.base_url),
             "Content-Type": "application/json",
         }
 
@@ -69,7 +69,7 @@ class RapidAPI(metaclass=Singleton):
         Returns:
             Optional[Dict[str, Any]]: Parsed JSON response or None if the request fails.
         """
-        url = f"{literal_eval(self.base_url)}{endpoint}"
+        url = f"{self.base_url}{endpoint}"
         try:
             logger.info(f"GET {url} | Params: {params}")
             time.sleep(delay_seconds + random.uniform(0.5, 1.5))  # jitter
