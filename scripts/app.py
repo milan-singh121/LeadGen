@@ -5,6 +5,7 @@ import json
 import logging
 from pymongo import MongoClient
 import warnings
+from ast import literal_eval
 
 warnings.filterwarnings("ignore")
 
@@ -20,7 +21,7 @@ if project_root not in sys.path:
 
 
 from config.singleton import Singleton
-from config.configuration_vars import ConfigVars
+from config.configuration_vars_config import ConfigVars
 from scripts.main import LeadGen
 
 import streamlit as st
@@ -84,7 +85,13 @@ class MongoDBClient(metaclass=Singleton):
         return cls._instance
 
     def _init_client(self):
-        MONGO_URI = ConfigVars().mongo_uri
+        MONGO_URI = literal_eval(ConfigVars().mongo_uri)
+
+        print(f"✅ Clean URI: {MONGO_URI}")
+        print(
+            f"🧪 Starts with 'mongodb+srv://'?: {MONGO_URI.startswith('mongodb+srv://')}"
+        )
+
         if not MONGO_URI:
             raise ValueError("MONGO_URI is not set in the configuration script.")
         self.client = MongoClient(MONGO_URI, maxPoolSize=50, minPoolSize=10)
