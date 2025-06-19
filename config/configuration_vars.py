@@ -14,26 +14,25 @@ class ConfigVars(metaclass=Singleton):
     """
 
     def __init__(self):
-        # Get the configuration
         configuration = Configuration()
         config = configuration.get_config()
 
         # ===================== Mongo Credentials =====================#
-        self.mongo_uri = config.get("MONGO", "MONGO_URI")
+        self.mongo_uri = config["MONGO"]["MONGO_URI"]
 
         # ===================== Secret Keys =====================#
-        self.rapid_api_key = config.get("KEY", "RAPID_API_KEY")
-        self.rapid_api_base_url = config.get("KEY", "RAPID_API_BASE_URL")
+        self.rapid_api_key = config["KEY"]["RAPID_API_KEY"]
+        self.rapid_api_base_url = config["KEY"]["RAPID_API_BASE_URL"]
 
         # ===================== GHL Keys =====================#
-        self.ghl_api_key = config.get("GHL", "API_KEY")
-        self.ghl_location_id = config.get("GHL", "LOCATION_ID")
+        self.ghl_api_key = config["GHL"]["API_KEY"]
+        self.ghl_location_id = config["GHL"]["LOCATION_ID"]
 
         # ===================== SNOV Keys =====================#
-        self.snov_user_id = config.get("KEY", "SNOV_API_USERID")
-        self.snov_secret_key = config.get("KEY", "SNOV_API_SECRET")
+        self.snov_user_id = config["KEY"]["SNOV_API_USERID"]
+        self.snov_secret_key = config["KEY"]["SNOV_API_SECRET"]
 
         # ===================== LLM Keys =====================#
-        self.aws_secret_key = config.get("LLM", "AWS_SECRET_KEY")
-        self.aws_access_key = config.get("LLM", "AWS_ACCESS_KEY")
-        self.aws_region = config.get("LLM", "AWS_REGION")
+        self.aws_secret_key = config["LLM"]["AWS_SECRET_KEY"]
+        self.aws_access_key = config["LLM"]["AWS_ACCESS_KEY"]
+        self.aws_region = config["LLM"]["AWS_REGION"]
