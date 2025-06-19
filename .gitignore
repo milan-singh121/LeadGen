@@ -1,0 +1,10 @@
+# Inside .gitignore
+__pycache__/
+*.pyc
+.env
+*.env
+.DS_Store
+.ipynb_checkpoints/
+node_modules/
+*.log
+*.sqlite3
