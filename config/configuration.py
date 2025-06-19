@@ -17,9 +17,9 @@ class Configuration(metaclass=Singleton):
         """
         if not self.config:
             self.config = configparser.RawConfigParser()
-            config_file_path = os.path.join(
-                os.path.dirname(__file__), ".streamlit/secrets.toml"
-            )
+            # config_file_path = os.path.join(os.path.dirname(__file__), "config.txt")
+
+            config_file_path = ".streamlit/secrets.toml"
             with open(config_file_path, encoding="UTF-8") as config_text:
                 self.config.read_file(config_text)
         return self.config
