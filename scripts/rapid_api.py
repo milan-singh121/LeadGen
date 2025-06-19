@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import requests
 from typing import Dict, Any, Optional
 import logging
-
+from ast import literal_eval
 from config.singleton import Singleton
 from config.configuration_vars import ConfigVars
 
@@ -29,7 +29,7 @@ class RapidAPI(metaclass=Singleton):
     def __init__(self) -> None:
         """Initialize with base URL and API key from configuration."""
         config = ConfigVars()
-        raw_url = config.rapid_api_base_url.strip().rstrip("/")
+        raw_url = literal_eval(config.rapid_api_base_url.strip().rstrip("/"))
 
         # Ensure scheme is present
         if not raw_url.startswith("http://") and not raw_url.startswith("https://"):
@@ -39,7 +39,7 @@ class RapidAPI(metaclass=Singleton):
         self.api_key: str = config.rapid_api_key
         self.headers: Dict[str, str] = {
             "x-rapidapi-key": self.api_key,
-            "x-rapidapi-host": self._extract_host(self.base_url),
+            "x-rapidapi-host": self._extract_host(literal_eval(self.base_url)),
             "Content-Type": "application/json",
         }
 
@@ -69,7 +69,7 @@ class RapidAPI(metaclass=Singleton):
         Returns:
             Optional[Dict[str, Any]]: Parsed JSON response or None if the request fails.
         """
-        url = f"{self.base_url}{endpoint}"
+        url = f"{literal_eval(self.base_url)}{endpoint}"
         try:
             logger.info(f"GET {url} | Params: {params}")
             time.sleep(delay_seconds + random.uniform(0.5, 1.5))  # jitter
