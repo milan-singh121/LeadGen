@@ -5,9 +5,9 @@ Code to run AI Prompts
 import sys, os
 from typing import List, Dict
 from anthropic import AnthropicBedrock
+from ast import literal_eval
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from config.singleton import Singleton
 from config.configuration_vars import ConfigVars
 
 
@@ -31,9 +31,9 @@ class ClaudeAIResponse:
             str: The text content of the AI's response.
         """
         anthropic_client = AnthropicBedrock(
-            aws_secret_key=ConfigVars().aws_secret_key,
-            aws_access_key=ConfigVars().aws_access_key,
-            aws_region=ConfigVars().aws_region,
+            aws_secret_key=literal_eval(ConfigVars().aws_secret_key),
+            aws_access_key=literal_eval(ConfigVars().aws_access_key),
+            aws_region=literal_eval(ConfigVars().aws_region),
         )
 
         messages = []

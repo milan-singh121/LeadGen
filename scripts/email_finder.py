@@ -11,6 +11,7 @@ from typing import Optional
 import requests
 import pandas as pd
 import tldextract
+from ast import literal_eval
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -33,8 +34,8 @@ class SnovEmailFinder(metaclass=Singleton):
         url = "https://api.snov.io/v1/oauth/access_token"
         data = {
             "grant_type": "client_credentials",
-            "client_id": ConfigVars().snov_user_id,
-            "client_secret": ConfigVars().snov_secret_key,
+            "client_id": literal_eval(ConfigVars().snov_user_id),
+            "client_secret": literal_eval(ConfigVars().snov_secret_key),
         }
         response = requests.post(url, data=data)
         return response.json()["access_token"]

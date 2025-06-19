@@ -6,6 +6,7 @@ import sys
 import os
 import json
 import requests
+from ast import literal_eval
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from config.singleton import Singleton
@@ -19,8 +20,8 @@ class Snov(metaclass=Singleton):
 
     def __init__(self):
         config = ConfigVars()
-        self.client_id = config.snov_user_id
-        self.client_secret = config.snov_secret_key
+        self.client_id = literal_eval(config.snov_user_id)
+        self.client_secret = literal_eval(config.snov_secret_key)
 
     def get_token(self):
         """
