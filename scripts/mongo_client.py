@@ -2,10 +2,11 @@ import sys
 import os
 import threading
 from pymongo import MongoClient
+from ast import literal_eval
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from config.singleton import Singleton
-from config.configuration_vars import ConfigVars
+from config.configuration_vars_config import ConfigVars
 
 
 class MongoDBClient(metaclass=Singleton):
@@ -25,7 +26,7 @@ class MongoDBClient(metaclass=Singleton):
         return cls._instance
 
     def _init_client(self):
-        MONGO_URI = ConfigVars().mongo_uri
+        MONGO_URI = literal_eval(ConfigVars().mongo_uri)
         if not MONGO_URI:
             raise ValueError("MONGO_URI is not set in the configuration script.")
         self.client = MongoClient(MONGO_URI, maxPoolSize=50, minPoolSize=10)
