@@ -168,5 +168,25 @@ class PromptsLib(metaclass=Singleton):
             3. Never hallucinate and never create any random scenarios.
             4. You have access to all the necessary data to answer the questions above. Carefully review the information provided and ensure that each question is answered thoroughly. Do not leave any question unanswered.
             5. Always return all the questions and answers in the response, don't leave anything out. Don't forget to maintain the structure
+
+        
+        NOTE:
+        
+        This is the final list of questions that must always be included in the response, each accompanied by a clear and accurate result. Do not omit any of them under any circumstance.
+
+        - What is the full legal name of the company?
+        - What industry or niche do they primarily operate in?
+        - Where is the company headquartered (city & country)?
+        - What is the current estimated employee count?
+        - What is the company website URL as mentioned in the LinkedIn Data?
+        - Name of the individual
+        - Their job title or designation
+        - Are they likely a decision-maker (e.g., manager, VP, director, CXO)?
+        - Are they hiring for roles that suggest growth, scaling, or specific operational challenges? If yes, mention the roles.
+        - Based on the company's industry, employee size, and growth stage, does it align with the Ideal Customer Profile (ICP) outlined in the ICP definition? Provide a brief rationale for your assessment.
+        - Are they likely to have the budget and maturity to engage with our service/product?
+        - Have they posted or reshared any content that shows their pain points or areas of focus? Summarize relevant content if available.
+        - Mention any known external tools or platforms the company uses (e.g., CRMs, marketing automation, cloud platforms, AI tools).
+        - Can you derive a clear value proposition we might be able to offer, based on their context?
         """
         return system_prompt, user_prompt
