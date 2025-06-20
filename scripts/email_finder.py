@@ -162,6 +162,14 @@ class SnovEmailFinder(metaclass=Singleton):
             print("Error finding email: %s", e)
             return None
 
+    def add_url_for_search(self, url):
+        token = self.get_access_token()
+        params = {"access_token": token, "url": url}
+
+        res = requests.post("https://api.snov.io/v1/add-url-for-search", data=params)
+
+        return json.loads(res.text)
+
     def get_emails_from_url(self, url):
         token = self.get_access_token()
         params = {"access_token": token, "url": url}
@@ -325,6 +333,7 @@ class SnovEmailFinder(metaclass=Singleton):
 
         for linkedin_url in people_df["profileURL"].dropna().unique():
             try:
+                response = self.add_url_for_search(linkedin_url)
                 url_result = self.get_emails_from_url(linkedin_url)
                 flattened = self.flatten_person_data(url_result.get("data", None))
                 flattened["profileURL"] = linkedin_url
