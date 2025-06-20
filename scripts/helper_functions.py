@@ -385,7 +385,7 @@ class HelperFunctions(metaclass=Singleton):
         ]
 
         # Apply transformation row-wise
-        final_data["emails"] = final_data.apply(
+        final_data["email_data"] = final_data.apply(
             lambda row: self.extract_emails(row, email_columns), axis=1
         )
 
