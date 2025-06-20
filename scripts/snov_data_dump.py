@@ -142,6 +142,9 @@ class Snov(metaclass=Singleton):
             company_name = row.get("companyName", "")
             company_site = row.get("currentJob_site", "")
 
+            if company_site and not company_site.startswith("https://"):
+                company_site = "https://" + company_site
+
             # Email subjects and bodies
             subject1 = row.get("Subject 1", "")
             email1 = row.get("Email Body 1", "")
