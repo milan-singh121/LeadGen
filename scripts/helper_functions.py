@@ -284,12 +284,20 @@ class HelperFunctions(metaclass=Singleton):
 
     @staticmethod
     def fix_bullet_breaks(email_body: str) -> str:
-        parts = re.split(r"(•)", email_body)
+        # Ensure bullets are followed by a space if not already
+        email_body = re.sub(r"•(?!\s)", "• ", email_body)
+
+        # Ensure numbered bullets like "1.Something" have a space: "1. Something"
+        email_body = re.sub(r"(\d+\.)(\S)", r"\1 \2", email_body)
+
+        # Split on bullets for HTML formatting
+        parts = re.split(r"(• )", email_body)
         rebuilt = ""
         for i in range(1, len(parts), 2):
             bullet = parts[i]
-            content = parts[i + 1]
+            content = parts[i + 1] if i + 1 < len(parts) else ""
             rebuilt += bullet + content.strip() + "<br>"
+
         return parts[0] + rebuilt if parts else email_body
 
     @staticmethod
