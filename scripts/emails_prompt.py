@@ -586,6 +586,8 @@ class EmailSequence(metaclass=Singleton):
             Important: Do not include any signature at the end of the email in any part of the sequence. This rule must be followed strictly.
 
             Do not include any closing salutations, sign-offs, or signatures at the end of the emails. Keep the ending concise and professional without any personal sign-off.
+
+            Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         """
 
         # Defining Personalization Triggers
@@ -623,6 +625,8 @@ class EmailSequence(metaclass=Singleton):
         NOTE: Avoid generic subject lines like ‘Accelerate Your Hiring’ — use the suggested examples for inspiration.
 
         Always remember to format the email properly using correct HTML line break syntax (<br>), and generate a personalized email sequence for each prospect using the information provided.
+
+        Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         ===================================================================================
         """
 
@@ -652,6 +656,8 @@ class EmailSequence(metaclass=Singleton):
         Share the logic used to create emails.
         
         TAKE A STEP-BY-STEP APPROACH.
+
+        Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         """
 
         # Adding Response Structure
@@ -721,5 +727,7 @@ class EmailSequence(metaclass=Singleton):
             - Always create emails using the given requirements and guidelines and do not copy the sample emails given.
             - Important: Do not include any signature at the end of the email in any part of the sequence. This rule must be followed strictly.
             - Always remember to format the email properly using correct HTML line break syntax (<br>), and generate a personalized email sequence for each prospect using the information provided.
+
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         """
         return system_prompt
