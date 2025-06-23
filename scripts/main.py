@@ -116,16 +116,20 @@ class LeadGen(metaclass=Singleton):
             email_body_cols = [f"Email Body {i}" for i in range(1, 6)]
             for col in email_body_cols:
                 if col in final_emails.columns:
-                    final_emails[col] = (
-                        final_emails[col]
-                        .astype(str)
-                        .apply(HelperFunctions().fix_bullet_breaks)
+                    final_emails[col] = final_emails[col].apply(
+                        GetEmailSequence().remove_line_breaks
                     )
-                    final_emails[col] = (
-                        final_emails[col]
-                        .astype(str)
-                        .apply(HelperFunctions().fix_numbered_bullet_breaks)
-                    )
+
+                    # final_emails[col] = (
+                    #     final_emails[col]
+                    #     .astype(str)
+                    #     .apply(HelperFunctions().fix_bullet_breaks)
+                    # )
+                    # final_emails[col] = (
+                    #     final_emails[col]
+                    #     .astype(str)
+                    #     .apply(HelperFunctions().fix_numbered_bullet_breaks)
+                    # )
 
             st.write("🧬 Merging all data...")
             final_people = pd.merge(

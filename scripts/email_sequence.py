@@ -100,6 +100,16 @@ class GetEmailSequence(metaclass=Singleton):
 
         return cleaned_email.strip()
 
+    @staticmethod
+    def remove_line_breaks(text: str) -> str:
+        if not isinstance(text, str):
+            return text
+        # Remove actual newline characters
+        text = text.replace("\n", "")
+        # Remove escaped newline strings (\\n)
+        text = text.replace("\\n", "")
+        return text.strip()
+
     def format_emails(self, all_emails):
         """
         This function is used to clean the email body to remove extra HTML breakers
