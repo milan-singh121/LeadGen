@@ -148,6 +148,17 @@ class LeadGen(metaclass=Singleton):
                 how="left",
             ).drop(columns=["First Name", "Last Name", "LinkedIn URL"])
 
+            # Adding Job Title & Job URL in the Data
+            jobs_df = jobs_df.rename(
+                columns={"title": "job_opening_title", "company_name": "company"}
+            )
+            final_data = pd.merge(
+                final_data,
+                jobs_df[["job_opening_title", "job_url", "company"]],
+                on=["company"],
+                how="left",
+            )
+
             final_data = final_data.drop_duplicates(subset=["profileURL"]).reset_index(
                 drop=True
             )

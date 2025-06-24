@@ -59,6 +59,8 @@ class Snov(metaclass=Singleton):
         position,
         company_name,
         company_site,
+        job_url,
+        job_title,
         subject1,
         email1,
         subject2,
@@ -100,7 +102,9 @@ class Snov(metaclass=Singleton):
             "companyName": company_name,
             "companySite": company_site,
             "updateContact": 1,
-            "listId": "31528934",
+            "listId": "31565379",
+            "customFields[LinkedIn Job URL]": job_url,
+            "customFields[Open Role]": job_title,
             "customFields[Subject1]": subject1,
             "customFields[Email1]": email1,
             "customFields[Subject2]": subject2,
@@ -159,6 +163,10 @@ class Snov(metaclass=Singleton):
                     or company_site.startswith("https://")
                 ):
                     company_site = "https://" + company_site
+
+                # Job Details
+                job_title = row.get("job_opening_title", "")
+                job_url = row.get("job_url", "")
 
                 # Email subjects and bodies
                 subject1 = row.get("Subject 1", "")
@@ -228,6 +236,8 @@ class Snov(metaclass=Singleton):
                     position,
                     company_name,
                     company_site,
+                    job_url,
+                    job_title,
                     subject1,
                     email1,
                     subject2,
