@@ -445,11 +445,15 @@ class JobOpenings(metaclass=Singleton):
             for post in fetch_posts(user)
         ]
         posts_df = pd.DataFrame(posts)
-        inserter.insert_or_upsert_to_mongo(
-            client, "RawPosts", inserter.prepare_data(posts_df)
-        )
-        posts_df.drop(
-            columns=[
+
+        # Proceed only if posts_df is not empty
+        if not posts_df.empty:
+            inserter.insert_or_upsert_to_mongo(
+                client, "RawPosts", inserter.prepare_data(posts_df)
+            )
+
+            # Drop unnecessary columns if they exist
+            drop_columns = [
                 "isBrandPartnership",
                 "totalReactionCount",
                 "likeCount",
@@ -473,15 +477,17 @@ class JobOpenings(metaclass=Singleton):
                 "video",
                 "funnyCount",
                 "article",
-            ],
-            inplace=True,
-            errors="ignore",
-        )
-        posts_df = posts_df.assign(
-            repost=posts_df["reposted"].fillna(False),
-            author=posts_df["author"].apply(helper.process_post_author),
-            resharedPost=posts_df["resharedPost"].apply(helper.process_reshared_data),
-        ).rename(columns={"Username": "username"})
+            ]
+            posts_df.drop(columns=drop_columns, inplace=True, errors="ignore")
+
+            # Clean and assign new columns
+            posts_df = posts_df.assign(
+                repost=posts_df.get("reposted", False).fillna(False),
+                author=posts_df["author"].apply(helper.process_post_author),
+                resharedPost=posts_df["resharedPost"].apply(
+                    helper.process_reshared_data
+                ),
+            ).rename(columns={"Username": "username"})
 
         @retry(tries=5, delay=2, backoff=2)
         def fetch_company(cid):

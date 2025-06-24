@@ -149,10 +149,13 @@ class GetEmailSequence(metaclass=Singleton):
                 job_data = jobs_df[jobs_df["company_name"] == company]
                 description = row.get("description", "")
 
-                posts = posts_df[posts_df["username"] == username]
-                _, recent_posts = helper.clean_data_for_questionnaire(
-                    final_people, posts
-                )
+                if not posts_df.empty:
+                    posts = posts_df[posts_df["username"] == username]
+                    _, recent_posts = helper.clean_data_for_questionnaire(
+                        final_people, posts
+                    )
+                else:
+                    recent_posts = []
 
                 print(f"Generating for {first_name} {last_name}")
 
