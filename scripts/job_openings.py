@@ -265,6 +265,14 @@ class JobOpenings(metaclass=Singleton):
                     for item in items:
                         item["Company"] = company
                     results.extend(items)
+
+                    # ✅ Stop early if we've found 5 to 10 leads already
+                    if 5 <= len(results) <= 10:
+                        logger.info(
+                            f"Enough leads found for {company}, skipping remaining keywords."
+                        )
+                        break
+
                 except Exception as e:
                     logger.info(
                         f"Failed fetching people for {company}, with keyword {keyword}: {e}"
@@ -275,12 +283,10 @@ class JobOpenings(metaclass=Singleton):
             companies = df["company_name"].dropna().unique()
             search_keywords = [
                 "Human Resource, HR",
-                "CTO, Chief Technology Officer",
-                "Talent Acquisition",
-                "Founder, Co-Founder, CEO",
-                "Head of Engineering, VP of Engineering, COO, Chief Operating Officer",
-                "Director, CTO, CXO, VP",
-                "Head of Innovation, Recruitment Lead",
+                "Talent Acquisition, IT Recruiter, VP",
+                "CTO, Chief Technology Officer, COO, CXO",
+                "Founder, Co-Founder, CEO, MD, Director",
+                # HR, Talent Acquistion, IT Recruiter, VP >>>> CTO, COO, CXO, VP >>>> CEO, CO-Founder, MD, Director
             ]
             people_data = [
                 person
