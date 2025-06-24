@@ -7,6 +7,7 @@ import os
 import json
 import requests
 from ast import literal_eval
+import streamlit as st
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from config.singleton import Singleton
@@ -35,7 +36,10 @@ class Snov(metaclass=Singleton):
         }
         response = requests.post(url, data=data)
         response.raise_for_status()
-        return response.json()["access_token"]
+
+        resText = response.text.encode("ascii", "ignore")
+
+        return json.loads(resText)["access_token"]
 
     @staticmethod
     def headers(token):
@@ -131,108 +135,130 @@ class Snov(metaclass=Singleton):
         """
         This function pushes data into Snov
         """
-        for _, row in final_data[final_data["emails"].notna()].iterrows():
+        st.subheader("Snov Data Upload Log")
+
+        for _, row in final_data[
+            (final_data["emails"].notna()) & (final_data["Subject 1"].notna())
+        ].iterrows():
+            full_name = row.get("name", "Unknown")
             email = row.get("emails", "")
-            full_name = row.get("name", "")
-            first_name = row.get("firstName", "")
-            last_name = row.get("lastName", "")
-            country = row.get("full_address", "")
-            linkedin_url = row.get("profileURL", "")
-            position = row.get("title", "")
-            company_name = row.get("companyName", "")
-            company_site = row.get("currentJob_site", "")
 
-            if company_site and not company_site.startswith("https://"):
-                company_site = "https://" + company_site
+            try:
+                # email = row.get("emails", "")
+                # full_name = row.get("name", "")
+                first_name = row.get("firstName", "")
+                last_name = row.get("lastName", "")
+                country = row.get("full_address", "")
+                linkedin_url = row.get("profileURL", "")
+                position = row.get("title", "")
+                company_name = row.get("companyName", "")
+                company_site = row.get("currentJob_site", "")
 
-            # Email subjects and bodies
-            subject1 = row.get("Subject 1", "")
-            email1 = row.get("Email Body 1", "")
-            subject2 = row.get("Subject 2", "")
-            email2 = row.get("Email Body 2", "")
-            subject3 = row.get("Subject 3", "")
-            email3 = row.get("Email Body 3", "")
-            subject4 = row.get("Subject 4", "")
-            email4 = row.get("Email Body 4", "")
-            subject5 = row.get("Subject 5", "")
-            email5 = row.get("Email Body 5", "")
+                if company_site and not (
+                    company_site.startswith("http://")
+                    or company_site.startswith("https://")
+                ):
+                    company_site = "https://" + company_site
 
-            # Questionnaire answers — default to "N/A" for better readability
-            answer1 = row.get("What is the full legal name of the company?", "N/A")
-            answer2 = row.get(
-                "What industry or niche do they primarily operate in?", "N/A"
-            )
-            answer3 = row.get(
-                "Where is the company headquartered (city & country)?", "N/A"
-            )
-            answer4 = row.get("What is the current estimated employee count?", "N/A")
-            answer5 = row.get(
-                "What is the company website URL as mentioned in the LinkedIn Data?",
-                "N/A",
-            )
-            answer6 = row.get("Name of the individual", "N/A")
-            answer7 = row.get("Their job title or designation", "N/A")
-            answer8 = row.get(
-                "Are they likely a decision-maker (e.g., manager, VP, director, CXO)?",
-                "N/A",
-            )
-            answer9 = row.get(
-                "Are they hiring for roles that suggest growth, scaling, or specific operational challenges? If yes, mention the roles.",
-                "N/A",
-            )
-            answer10 = row.get(
-                "Based on the company's industry, employee size, and growth stage, does it align with the Ideal Customer Profile (ICP) outlined in the ICP definition? Provide a brief rationale for your assessment.",
-                "N/A",
-            )
-            answer11 = row.get(
-                "Are they likely to have the budget and maturity to engage with our service/product?",
-                "N/A",
-            )
-            answer12 = row.get(
-                "Have they posted or reshared any content that shows their pain points or areas of focus? Summarize relevant content if available.",
-                "N/A",
-            )
-            answer13 = row.get(
-                "Mention any known external tools or platforms the company uses (e.g., CRMs, marketing automation, cloud platforms, AI tools).",
-                "N/A",
-            )
-            answer14 = row.get(
-                "Can you derive a clear value proposition we might be able to offer, based on their context?",
-                "N/A",
-            )
+                # Email subjects and bodies
+                subject1 = row.get("Subject 1", "")
+                email1 = row.get("Email Body 1", "")
+                subject2 = row.get("Subject 2", "")
+                email2 = row.get("Email Body 2", "")
+                subject3 = row.get("Subject 3", "")
+                email3 = row.get("Email Body 3", "")
+                subject4 = row.get("Subject 4", "")
+                email4 = row.get("Email Body 4", "")
+                subject5 = row.get("Subject 5", "")
+                email5 = row.get("Email Body 5", "")
 
-            _ = self.add_prospect_to_list(
-                email,
-                full_name,
-                first_name,
-                last_name,
-                country,
-                linkedin_url,
-                position,
-                company_name,
-                company_site,
-                subject1,
-                email1,
-                subject2,
-                email2,
-                subject3,
-                email3,
-                subject4,
-                email4,
-                subject5,
-                email5,
-                answer1,
-                answer2,
-                answer3,
-                answer4,
-                answer5,
-                answer6,
-                answer7,
-                answer8,
-                answer9,
-                answer10,
-                answer11,
-                answer12,
-                answer13,
-                answer14,
-            )
+                # Questionnaire answers — default to "N/A" for better readability
+                answer1 = row.get("What is the full legal name of the company?", "N/A")
+                answer2 = row.get(
+                    "What industry or niche do they primarily operate in?", "N/A"
+                )
+                answer3 = row.get(
+                    "Where is the company headquartered (city & country)?", "N/A"
+                )
+                answer4 = row.get(
+                    "What is the current estimated employee count?", "N/A"
+                )
+                answer5 = row.get(
+                    "What is the company website URL as mentioned in the LinkedIn Data?",
+                    "N/A",
+                )
+                answer6 = row.get("Name of the individual", "N/A")
+                answer7 = row.get("Their job title or designation", "N/A")
+                answer8 = row.get(
+                    "Are they likely a decision-maker (e.g., manager, VP, director, CXO)?",
+                    "N/A",
+                )
+                answer9 = row.get(
+                    "Are they hiring for roles that suggest growth, scaling, or specific operational challenges? If yes, mention the roles.",
+                    "N/A",
+                )
+                answer10 = row.get(
+                    "Based on the company's industry, employee size, and growth stage, does it align with the Ideal Customer Profile (ICP) outlined in the ICP definition? Provide a brief rationale for your assessment.",
+                    "N/A",
+                )
+                answer11 = row.get(
+                    "Are they likely to have the budget and maturity to engage with our service/product?",
+                    "N/A",
+                )
+                answer12 = row.get(
+                    "Have they posted or reshared any content that shows their pain points or areas of focus? Summarize relevant content if available.",
+                    "N/A",
+                )
+                answer13 = row.get(
+                    "Mention any known external tools or platforms the company uses (e.g., CRMs, marketing automation, cloud platforms, AI tools).",
+                    "N/A",
+                )
+                answer14 = row.get(
+                    "Can you derive a clear value proposition we might be able to offer, based on their context?",
+                    "N/A",
+                )
+
+                response = self.add_prospect_to_list(
+                    email,
+                    full_name,
+                    first_name,
+                    last_name,
+                    country,
+                    linkedin_url,
+                    position,
+                    company_name,
+                    company_site,
+                    subject1,
+                    email1,
+                    subject2,
+                    email2,
+                    subject3,
+                    email3,
+                    subject4,
+                    email4,
+                    subject5,
+                    email5,
+                    answer1,
+                    answer2,
+                    answer3,
+                    answer4,
+                    answer5,
+                    answer6,
+                    answer7,
+                    answer8,
+                    answer9,
+                    answer10,
+                    answer11,
+                    answer12,
+                    answer13,
+                    answer14,
+                )
+
+                if response.get("success"):
+                    st.success(f"✅ Success: {full_name} ({email}) added to Snov.")
+                else:
+                    reason = response.get("message", "Unknown error")
+                    st.error(f"❌ Failed: {full_name} ({email}) — Reason: {reason}")
+
+            except Exception as e:
+                st.error(f"❌ Error: {full_name} ({email}) — Exception: {str(e)}")
