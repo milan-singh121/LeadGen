@@ -102,7 +102,7 @@ class Snov(metaclass=Singleton):
             "companyName": company_name,
             "companySite": company_site,
             "updateContact": 1,
-            "listId": "31565379",
+            "listId": "31528934",
             "customFields[LinkedIn Job URL]": job_url,
             "customFields[Open Role]": job_title,
             "customFields[Subject1]": subject1,
