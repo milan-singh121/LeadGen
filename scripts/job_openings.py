@@ -189,6 +189,10 @@ class JobOpenings(metaclass=Singleton):
         helper = HelperFunctions()
         jobs_df = pd.DataFrame([helper.flatten_dict(job) for job in jobs_raw])
         jobs_df.rename(columns={"id": "job_id"}, inplace=True)
+
+        if jobs_df is not None and not jobs_df.empty:
+            jobs_df = jobs_df.head(10)
+
         log_progress(f"📦 Total jobs fetched: {len(jobs_df)}")
 
         if jobs_df is None or len(jobs_df) == 0:
