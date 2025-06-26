@@ -45,6 +45,9 @@ class CompanyFetcherPipeline:
         return pd.DataFrame(existing_docs)
 
     def find_missing_companies(self, jobs_df, existing_df):
+        if jobs_df.empty:
+            return pd.DataFrame(), pd.DataFrame()
+
         new_urls = set(jobs_df["linkedinUrl"].dropna().unique())
         existing_urls = set(existing_df["linkedinUrl"].dropna().unique())
 
