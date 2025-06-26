@@ -24,6 +24,7 @@ class InsertData(metaclass=Singleton):
             "RawPosts": ["postUrl"],
             "RawCompany": ["companyId"],
             "FinalData": ["profileURL"],
+            "Query": ["query_id"],
         }
 
     @staticmethod

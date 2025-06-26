@@ -6,6 +6,8 @@ import logging
 from pymongo import MongoClient
 import warnings
 from ast import literal_eval
+import uuid
+import pandas as pd
 
 warnings.filterwarnings("ignore")
 
@@ -23,6 +25,8 @@ if project_root not in sys.path:
 from config.singleton import Singleton
 from config.configuration_vars import ConfigVars
 from scripts.main import LeadGen
+from scripts.insert_data_in_db import InsertData
+from scripts.mongo_client import MongoDBClient
 
 import streamlit as st
 
@@ -71,40 +75,6 @@ st.markdown(
 )
 
 
-# MongoDB connection
-class MongoDBClient(metaclass=Singleton):
-    _instance = None
-    _lock = threading.Lock()
-
-    def __new__(cls):
-        if not cls._instance:
-            with cls._lock:
-                if not cls._instance:
-                    cls._instance = super(MongoDBClient, cls).__new__(cls)
-                    cls._instance._init_client()
-        return cls._instance
-
-    def _init_client(self):
-        MONGO_URI = literal_eval(ConfigVars().mongo_uri)
-
-        print(f"✅ Clean URI: {MONGO_URI}")
-        print(
-            f"🧪 Starts with 'mongodb+srv://'?: {MONGO_URI.startswith('mongodb+srv://')}"
-        )
-
-        if not MONGO_URI:
-            raise ValueError("MONGO_URI is not set in the configuration script.")
-        self.client = MongoClient(MONGO_URI, maxPoolSize=50, minPoolSize=10)
-        self.db = self.client["LeadGen"]
-
-    def get_collection(self, collection_name):
-        return self.db[collection_name]
-
-    def close_connection(self):
-        if hasattr(self, "client"):
-            self.client.close()
-
-
 industries_col = MongoDBClient().get_collection("IndustryCodesV2")
 functions_col = MongoDBClient().get_collection("JobFunctionID")
 locations_col = MongoDBClient().get_collection("LocationID")
@@ -136,13 +106,15 @@ with col2:
     date_posted = st.selectbox(
         "📅 Date Posted", ["pastMonth", "anyTime", "pastWeek", "past24Hours"]
     )
+
+
+with col3:
     onsite_remote = st.selectbox(
         "🏢 Onsite/Remote", ["-- None --", "onSite", "remote", "hybrid"]
     )
     onsite_remote_value = None if onsite_remote == "-- None --" else onsite_remote
-
-with col3:
-    sort = st.selectbox("🔽 Sort By", ["mostRelevant", "mostRecent"])
+#     sort = st.selectbox("🔽 Sort By", ["mostRelevant", "mostRecent"])
+sort = "mostRecent"
 
 st.markdown(
     "<div class='subheader'>📍 Location, Industry, and Function</div>",
@@ -197,7 +169,17 @@ if search_clicked:
         "location": {"description": selected_location, "id": location_id},
         "industry": {"description": selected_industry, "id": industry_id},
         "job_function": {"description": selected_function, "id": function_id},
+        "status": "Inprogress",
+        "query_id": str(uuid.uuid4()),
     }
+
+    # Store Query in DB
+    client = MongoDBClient()
+    inserter = InsertData()
+    inserter.ensure_indexes(client)
+    filter_log = pd.DataFrame([filters_log])
+    prepared_query_data = inserter.prepare_data(filter_log)
+    inserter.insert_or_upsert_to_mongo(client, "Query", prepared_query_data)
 
     logger.info(f"Selected Filters: {json.dumps(filters_log, indent=2)}")
 
@@ -214,4 +196,5 @@ if search_clicked:
         industry_id=industry_id,
         onsite_remote=onsite_remote_value,
         sort=sort,
+        query_data=prepared_query_data,
     )

@@ -20,6 +20,7 @@ from scripts.email_finder import SnovEmailFinder
 from scripts.email_sequence import GetEmailSequence
 from scripts.snov_data_dump import Snov
 from scripts.insert_data_in_db import InsertData
+from scripts.orchetrator import Orchestrator
 
 logger = logging.getLogger(__name__)
 
@@ -42,6 +43,7 @@ class LeadGen(metaclass=Singleton):
         industry_id,
         onsite_remote,
         sort,
+        query_data,
     ) -> pd.DataFrame:
         """
         Streamlit-compatible version of the lead generation pipeline.
@@ -54,24 +56,22 @@ class LeadGen(metaclass=Singleton):
             client = MongoDBClient()
 
             st.write("🔍 Fetching job openings and people data...")
-            jobs_df, final_people, posts_df, company_df = (
-                JobOpenings().get_job_openings(
-                    client,
-                    keywords,
-                    location,
-                    date_posted,
-                    job_type,
-                    function_id,
-                    industry_id,
-                    onsite_remote,
-                    sort,
-                    status=status,
-                )
+            jobs_df, company_df, people_df, posts_df, _ = Orchestrator().run_job(
+                client,
+                keywords,
+                location,
+                date_posted,
+                job_type,
+                function_id,
+                industry_id,
+                onsite_remote,
+                sort,
+                status=status,
             )
 
             st.write("📥 Collecting emails from LinkedIn URLs...")
             email_from_url_data = SnovEmailFinder().collect_emails_from_linkedin_urls(
-                final_people
+                people_df
             )
 
             st.write("📩 Enriching missing emails...")
@@ -80,7 +80,7 @@ class LeadGen(metaclass=Singleton):
             st.write("🔗 Merging email data with people...")
             final_people = (
                 pd.merge(
-                    final_people,
+                    people_df,
                     emails_data[
                         [
                             "profileURL",
@@ -120,17 +120,6 @@ class LeadGen(metaclass=Singleton):
                         GetEmailSequence().remove_line_breaks
                     )
 
-                    # final_emails[col] = (
-                    #     final_emails[col]
-                    #     .astype(str)
-                    #     .apply(HelperFunctions().fix_bullet_breaks)
-                    # )
-                    # final_emails[col] = (
-                    #     final_emails[col]
-                    #     .astype(str)
-                    #     .apply(HelperFunctions().fix_numbered_bullet_breaks)
-                    # )
-
             st.write("🧬 Merging all data...")
             final_people = pd.merge(
                 final_people,
@@ -163,6 +152,12 @@ class LeadGen(metaclass=Singleton):
                 drop=True
             )
 
+            # Cleaning the email column with list of email ids.
+            if "emails" in final_data.columns:
+                final_data["emails"] = final_data["emails"].apply(
+                    HelperFunctions().clean_email
+                )
+
             st.write("📧 Handling fallback emails for missing values...")
             final_data.loc[final_data["emails"].isna(), "emails"] = (
                 final_data["firstName"] + "@yopmail.com"
@@ -180,5 +175,10 @@ class LeadGen(metaclass=Singleton):
             )
 
             status.update(label="✅ Pipeline completed!", state="complete")
+
+            # Updating the query status in DB
+            for query in query_data:
+                query["status"] = "Completed"
+            inserter.insert_or_upsert_to_mongo(client, "Query", query_data)
 
         return final_data

@@ -119,7 +119,7 @@ class SnovEmailFinder(metaclass=Singleton):
         return pd.DataFrame([row])
 
     def find_email_from_name_and_domain(
-        self, first_name: str, last_name: str, domain: str, delay_seconds: int = 60
+        self, first_name: str, last_name: str, domain: str, delay_seconds: int = 30
     ) -> Optional[pd.DataFrame]:
         """
         Finds a prospect's email address using first name, last name, and company

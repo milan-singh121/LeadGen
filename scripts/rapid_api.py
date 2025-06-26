@@ -234,3 +234,16 @@ class RapidAPI(metaclass=Singleton):
             Optional[Dict[str, Any]]: Company details.
         """
         return self._make_request("/get-company-details-by-id", {"id": company_id})
+
+    def get_linkedin_company_details_by_username(self, username: str):
+        """
+        Fetch company details using a LinkedIn Company Username
+
+        Args:
+            username (str): LinkedIn company ID
+
+        Returns:
+            Optional[Dict[str, Any]]: Company details.
+        """
+
+        return self._make_request("/get-company-details", {"username": username})

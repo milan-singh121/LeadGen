@@ -102,7 +102,7 @@ class Snov(metaclass=Singleton):
             "companyName": company_name,
             "companySite": company_site,
             "updateContact": 1,
-            "listId": "31528934",
+            "listId": "31586799",
             "customFields[LinkedIn Job URL]": job_url,
             "customFields[Open Role]": job_title,
             "customFields[Subject1]": subject1,
@@ -142,7 +142,9 @@ class Snov(metaclass=Singleton):
         st.subheader("Snov Data Upload Log")
 
         for _, row in final_data[
-            (final_data["emails"].notna()) & (final_data["Subject 1"].notna())
+            (final_data["emails"].notna())
+            & (final_data["Subject 1"].notna())
+            & (final_data["currentJob_site"].notna())
         ].iterrows():
             full_name = row.get("name", "Unknown")
             email = row.get("emails", "")
@@ -158,11 +160,11 @@ class Snov(metaclass=Singleton):
                 company_name = row.get("companyName", "")
                 company_site = row.get("currentJob_site", "")
 
-                if company_site and not (
-                    company_site.startswith("http://")
-                    or company_site.startswith("https://")
-                ):
-                    company_site = "https://" + company_site
+                if company_site:
+                    if not company_site.startswith(("http://", "https://")):
+                        company_site = "https://" + company_site
+                else:
+                    company_site = "https://www.linkedin.com"
 
                 # Job Details
                 job_title = row.get("job_opening_title", "")

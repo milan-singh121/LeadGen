@@ -400,3 +400,12 @@ class HelperFunctions(metaclass=Singleton):
         # Optional: drop the original flat columns
         final_data.drop(columns=email_columns, inplace=True)
         return final_data
+
+    @staticmethod
+    def clean_email(value):
+        if isinstance(value, list) and value:
+            return value[0]  # return first email from list
+        elif isinstance(value, str):
+            return value.strip()  # return as-is (after stripping whitespace)
+        else:
+            return None  # handle None or unexpected types
