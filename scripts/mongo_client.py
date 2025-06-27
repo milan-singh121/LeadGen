@@ -26,11 +26,20 @@ class MongoDBClient(metaclass=Singleton):
         return cls._instance
 
     def _init_client(self):
-        MONGO_URI = literal_eval(ConfigVars().mongo_uri)
-        if not MONGO_URI:
-            raise ValueError("MONGO_URI is not set in the configuration script.")
-        self.client = MongoClient(MONGO_URI, maxPoolSize=50, minPoolSize=10)
-        self.db = self.client["LeadGen"]
+        try:
+            mongo_uri_raw = ConfigVars().mongo_uri
+            if not mongo_uri_raw:
+                raise ValueError("MONGO_URI is not set in ConfigVars.")
+
+            MONGO_URI = literal_eval(mongo_uri_raw)
+            if not MONGO_URI:
+                raise ValueError("MONGO_URI evaluated to None or empty.")
+
+            self.client = MongoClient(MONGO_URI, maxPoolSize=50, minPoolSize=10)
+            self.db = self.client["LeadGen"]
+
+        except Exception as e:
+            raise RuntimeError(f"Failed to initialize MongoDB client: {e}")
 
     def get_collection(self, collection_name):
         return self.db[collection_name]
