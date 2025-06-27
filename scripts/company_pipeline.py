@@ -67,13 +67,18 @@ class CompanyFetcherPipeline:
         for username in usernames:
             try:
                 data = RapidAPI().get_linkedin_company_details_by_username(username)
-                results.append(data.get("data", {}))
+                company_data = data.get("data")
+                if company_data:  # Only append if not None
+                    results.append(company_data)
+                else:
+                    self.log_progress(f"⚠️ No data found for '{username}'")
             except Exception as e:
                 self.log_progress(f"❌ Error fetching company '{username}': {e}")
+
         if results:
             return pd.DataFrame(results).dropna(how="all").reset_index(drop=True)
         else:
-            return pd.DataFrame()  # safer than returning None
+            return pd.DataFrame()
 
     def parse_staff_range(self, range_str):
         try:
