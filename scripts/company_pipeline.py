@@ -133,23 +133,30 @@ class CompanyFetcherPipeline:
             full_df = already_present.copy()
 
         # Step 4: Merge and insert into RawCompany
+        if not full_df.empty:
+            self.inserter.insert_or_upsert_to_mongo(
+                self.client, "RawCompany", self.inserter.prepare_data(full_df)
+            )
 
-        self.inserter.insert_or_upsert_to_mongo(
-            self.client, "RawCompany", self.inserter.prepare_data(full_df)
-        )
+            # Step 5: Clean for final company DB
+            full_df_cleaned = self.clean_company_data(full_df)
 
-        # Step 5: Clean for final company DB
-        full_df_cleaned = self.clean_company_data(full_df)
+            if not full_df_cleaned.empty:
+                # Step 6: Filter ICP-fit companies
+                icp_fit = (
+                    full_df_cleaned[full_df_cleaned["upper_limit"] <= 200]
+                    .copy()
+                    .reset_index(drop=True)
+                )
 
-        # Step 6: Filter ICP-fit companies
-        icp_fit = full_df_cleaned[full_df_cleaned["upper_limit"] <= 200].reset_index(
-            drop=True
-        )
+                if not icp_fit.empty:
+                    # Step 7: Insert into production company collection
+                    self.inserter.insert_or_upsert_to_mongo(
+                        self.client, "Company", self.inserter.prepare_data(icp_fit)
+                    )
 
-        # Step 7: Insert into production company collection
-        self.inserter.insert_or_upsert_to_mongo(
-            self.client, "Company", self.inserter.prepare_data(icp_fit)
-        )
+                    self.log_progress(f"🏁 {len(icp_fit)} ICP-fit companies inserted.")
+                    return icp_fit
 
-        self.log_progress(f"🏁 {len(icp_fit)} ICP-fit companies inserted.")
-        return icp_fit
+        self.log_progress("⚠️ No valid companies to insert.")
+        return None
