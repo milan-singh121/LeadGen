@@ -27,6 +27,8 @@ from config.configuration_vars import ConfigVars
 from scripts.main import LeadGen
 from scripts.insert_data_in_db import InsertData
 from scripts.mongo_client import MongoDBClient
+from scripts.snov_data_dump import Snov
+
 
 import streamlit as st
 
@@ -41,6 +43,11 @@ logger = logging.getLogger(__name__)
 
 # Apply Streamlit styling
 st.set_page_config(page_title="LeadGen Search", layout="wide")
+
+if "stop_process" not in st.session_state:
+    st.session_state.stop_process = False
+
+
 st.markdown(
     """
     <style>
@@ -113,7 +120,39 @@ with col3:
         "🏢 Onsite/Remote", ["-- None --", "onSite", "remote", "hybrid"]
     )
     onsite_remote_value = None if onsite_remote == "-- None --" else onsite_remote
-#     sort = st.selectbox("🔽 Sort By", ["mostRelevant", "mostRecent"])
+    #     sort = st.selectbox("🔽 Sort By", ["mostRelevant", "mostRecent"])
+
+    # Snov Lead List
+    # 1. Fetch existing lists
+    existing_lists = Snov().get_user_lists()
+    list_name_to_id = {item["name"]: item["id"] for item in existing_lists}
+
+    # 2. Combine dropdown options
+    dropdown_options = list(list_name_to_id.keys()) + ["➕ Create new list"]
+
+    # 3. Show dropdown
+    selected_option = st.selectbox(
+        "📄 Select or create a prospect list", dropdown_options
+    )
+
+    # 4. Determine whether to use existing or create new
+    if selected_option == "➕ Create new list":
+        new_list_name = st.text_input("Enter name for new list")
+
+        if new_list_name:
+            if st.button("Create and Use This List"):
+                response = Snov().create_prospect_list(name=new_list_name)
+                if response.get("success"):
+                    list_id = response["data"]["id"]
+                    st.success(f"✅ Created new list: {new_list_name} (ID: {list_id})")
+                else:
+                    st.error("❌ Failed to create new list.")
+                    list_id = None
+    else:
+        list_id = list_name_to_id[selected_option]
+        st.info(f"✅ Using existing list: {selected_option} (ID: {list_id})")
+
+# Sort Option
 sort = "mostRecent"
 
 st.markdown(
@@ -136,8 +175,18 @@ with col6:
     selected_function = st.selectbox("💼 Job Function", function_options, index=0)
 
 # Run job search
+col7, col8 = st.columns([1, 1])
+
 st.markdown("<br>", unsafe_allow_html=True)
 search_clicked = st.button("🚀 Search Jobs", use_container_width=True)
+# with col7:
+#     st.markdown("<br>", unsafe_allow_html=True)
+#     search_clicked = st.button("🚀 Search Jobs", use_container_width=True)
+
+# with col8:
+#     st.markdown("<br>", unsafe_allow_html=True)
+#     if st.button("🛑 Stop Process", use_container_width=True):
+#         st.session_state.stop_process = True
 
 if search_clicked:
     location_id = (
@@ -197,4 +246,5 @@ if search_clicked:
         onsite_remote=onsite_remote_value,
         sort=sort,
         query_data=prepared_query_data,
+        snov_lead_list=list_id,
     )

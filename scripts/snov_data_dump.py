@@ -41,6 +41,22 @@ class Snov(metaclass=Singleton):
 
         return json.loads(resText)["access_token"]
 
+    def get_user_lists(self):
+        token = self.get_token()
+        params = {"access_token": token}
+
+        res = requests.get("https://api.snov.io/v1/get-user-lists", params=params)
+
+        return json.loads(res.text)
+
+    def create_prospect_list(self, name):
+        token = self.get_token()
+        params = {"access_token": token, "name": name}
+
+        res = requests.post("https://api.snov.io/v1/lists", data=params)
+
+        return json.loads(res.text)
+
     @staticmethod
     def headers(token):
         """
@@ -50,6 +66,7 @@ class Snov(metaclass=Singleton):
 
     def add_prospect_to_list(
         self,
+        lead_list_id,
         email,
         full_name,
         first_name,
@@ -102,7 +119,7 @@ class Snov(metaclass=Singleton):
             "companyName": company_name,
             "companySite": company_site,
             "updateContact": 1,
-            "listId": "31586799",
+            "listId": lead_list_id,
             "customFields[LinkedIn Job URL]": job_url,
             "customFields[Open Role]": job_title,
             "customFields[Subject1]": subject1,
@@ -135,7 +152,7 @@ class Snov(metaclass=Singleton):
 
         return json.loads(res.text)
 
-    def dump_data_in_snov(self, final_data):
+    def dump_data_in_snov(self, final_data, lead_list_id):
         """
         This function pushes data into Snov
         """
@@ -229,6 +246,7 @@ class Snov(metaclass=Singleton):
                 )
 
                 response = self.add_prospect_to_list(
+                    lead_list_id,
                     email,
                     full_name,
                     first_name,

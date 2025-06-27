@@ -44,6 +44,7 @@ class LeadGen(metaclass=Singleton):
         onsite_remote,
         sort,
         query_data,
+        snov_lead_list,
     ) -> pd.DataFrame:
         """
         Streamlit-compatible version of the lead generation pipeline.
@@ -51,9 +52,16 @@ class LeadGen(metaclass=Singleton):
 
         status = st.status("🚀 Running lead generation pipeline...", expanded=True)
 
+        if "stop_process" not in st.session_state:
+            st.session_state.stop_process = False
+
         with status:
             st.write("📡 Connecting to MongoDB...")
             client = MongoDBClient()
+
+            if st.session_state.stop_process:
+                st.warning("⚠️ Process stopped by user.")
+                return pd.DataFrame()
 
             st.write("🔍 Fetching job openings and people data...")
             jobs_df, company_df, people_df, posts_df, _ = Orchestrator().run_job(
@@ -69,10 +77,18 @@ class LeadGen(metaclass=Singleton):
                 status=status,
             )
 
+            if st.session_state.stop_process:
+                st.warning("⚠️ Process stopped by user.")
+                return pd.DataFrame()
+
             st.write("📥 Collecting emails from LinkedIn URLs...")
             email_from_url_data = SnovEmailFinder().collect_emails_from_linkedin_urls(
                 people_df
             )
+
+            if st.session_state.stop_process:
+                st.warning("⚠️ Process stopped by user.")
+                return pd.DataFrame()
 
             st.write("📩 Enriching missing emails...")
             emails_data = SnovEmailFinder().enrich_missing_emails(email_from_url_data)
@@ -97,6 +113,10 @@ class LeadGen(metaclass=Singleton):
                 .drop_duplicates(subset=["profileURL"])
                 .reset_index(drop=True)
             )
+
+            if st.session_state.stop_process:
+                st.warning("⚠️ Process stopped by user.")
+                return pd.DataFrame()
 
             st.write("🧠 Generating questionnaire summaries...")
             questionnaire_response = HelperFunctions().get_questionnaire_data(
@@ -163,8 +183,12 @@ class LeadGen(metaclass=Singleton):
                 final_data["firstName"] + "@yopmail.com"
             )
 
+            if st.session_state.stop_process:
+                st.warning("⚠️ Process stopped by user.")
+                return pd.DataFrame()
+
             st.write("📤 Dumping data into Snov.io...")
-            Snov().dump_data_in_snov(final_data)
+            Snov().dump_data_in_snov(final_data, snov_lead_list)
 
             st.write("📤 Dumping data into MongoDB...")
 

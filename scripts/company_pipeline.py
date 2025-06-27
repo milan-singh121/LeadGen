@@ -118,12 +118,22 @@ class CompanyFetcherPipeline:
         already_present, not_present = self.find_missing_companies(jobs_df, existing_df)
 
         # Step 3: Fetch new company data
-        usernames = not_present["company_username"].dropna().unique()
-        new_company_df = self.fetch_company_data(usernames)
+        if not not_present.empty:
+            usernames = not_present["company_username"].dropna().unique()
+            new_company_df = self.fetch_company_data(usernames)
+
+            if new_company_df is not None and not new_company_df.empty:
+                new_company_df.rename(columns={"id": "companyId"}, inplace=True)
+                full_df = pd.concat(
+                    [already_present, new_company_df], ignore_index=True
+                )
+            else:
+                full_df = already_present.copy()
+        else:
+            full_df = already_present.copy()
 
         # Step 4: Merge and insert into RawCompany
-        new_company_df.rename(columns={"id": "companyId"}, inplace=True)
-        full_df = pd.concat([already_present, new_company_df], ignore_index=True)
+
         self.inserter.insert_or_upsert_to_mongo(
             self.client, "RawCompany", self.inserter.prepare_data(full_df)
         )
