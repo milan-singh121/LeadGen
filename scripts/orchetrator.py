@@ -80,6 +80,12 @@ class Orchestrator:
         # Initial run
         jobs_df, company_df = run_job_and_company_pipeline()
 
+        if jobs_df is None:
+            st.warning(
+                "⚠️ No new jobs found for the given filters. Please try again with different filter combinations."
+            )
+            st.stop()
+
         # Loop until 15+ unique companies or 3 total attempts
         counter = 1
         max_attempts = 3
@@ -113,9 +119,16 @@ class Orchestrator:
 
             counter += 1
 
-        status.write(
-            f"🏁 Company pipeline completed: {len(company_df)} ICP-fit companies found."
-        )
+        if company_df is not None and not company_df.empty:
+            status.write(
+                f"🏁 Company pipeline completed: {len(company_df)} ICP-fit companies found."
+            )
+        else:
+            st.warning(
+                "⚠️ No ICP company found. Please try again with different filter combinations."
+            )
+            st.stop()
+
         # Combine Jobs and Company to get the final list of companies that meet the criteria
         if jobs_df is None or company_df is None:
             status.write("❌ Unable to merge jobs and companies.")

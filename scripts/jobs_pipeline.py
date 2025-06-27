@@ -109,7 +109,6 @@ class JobFetcherPipeline:
         ].reset_index(drop=True)
 
         if main_jobs_df.empty:
-            self.log_progress("⚠️ No new jobs to process.")
             return pd.DataFrame()
 
         self.log_progress(f"📦 Total new jobs to insert: {len(main_jobs_df)}")

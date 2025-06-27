@@ -28,8 +28,6 @@ from scripts.main import LeadGen
 from scripts.insert_data_in_db import InsertData
 from scripts.mongo_client import MongoDBClient
 from scripts.snov_data_dump import Snov
-
-
 import streamlit as st
 
 # Set up logging
