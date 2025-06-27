@@ -116,7 +116,6 @@ class CompanyFetcherPipeline:
 
         # Step 2: Find missing vs present
         already_present, not_present = self.find_missing_companies(jobs_df, existing_df)
-
         # Step 3: Fetch new company data
         if not not_present.empty:
             usernames = not_present["company_username"].dropna().unique()
