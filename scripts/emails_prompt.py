@@ -358,7 +358,7 @@ class EmailSequence(metaclass=Singleton):
             - Between 75–120 words. Short, readable, and value-packed.
     
         ➤ PERSONALIZATION TRIGGERS (to appear early in the email):  
-           Craft an email that addresses the prospect’s key hiring pain points based on the job roles they are currently hiring for.
+           Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. Avoid exaggeration or unsupported claims — only include details that are grounded in the available data.
         	- Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).
         	- The email subject line should be creative and attention-grabbing, while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions.
         	- Keep the tone professional but conversational, and include a subtle CTA if relevant.
@@ -366,6 +366,7 @@ class EmailSequence(metaclass=Singleton):
             - Include the **specific use case** (e.g., platform migration, checkout speed optimization, design refresh).  
             - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”).
             - The email should always sound human and natural, don't make it sound like AI. The emails should be very smooth and clear.
+            - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
             
     
         ➤ VALUE ANGLE
