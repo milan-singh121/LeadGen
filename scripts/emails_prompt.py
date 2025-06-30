@@ -368,12 +368,14 @@ class EmailSequence(metaclass=Singleton):
             - The email should always sound human and natural, don't make it sound like AI. The emails should be very smooth and clear.
             
     
-        ➤ VALUE ANGLE  
+        ➤ VALUE ANGLE
             - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).  
             - Immediately follow with a success story or case study that proves InHousen’s capabilities.
+            - In this email always remember to add this point as a Value Proposition:
+                - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
     
         ➤ CLOSING  
-            - Mention that Nagma Rukhsar (Business Development Lead) will follow up shortly.  
+            - Mention that Rounak (Business Development Lead) will follow up shortly.  
     
         === PROMPT INSTRUCTION TO MODEL ===
     
@@ -432,7 +434,7 @@ class EmailSequence(metaclass=Singleton):
             
             Would love to show you how we can future-proof your online presence.
             
-            Also, my colleague Nagma Rukhsar, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
+            Also, my colleague Rounak, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
 
         === SUBJECT LINE SUGGESTIONS ===  
             1. Future-Proof Your Website: Meet Inhousen
@@ -441,6 +443,8 @@ class EmailSequence(metaclass=Singleton):
             4. From Lightspeed to Shopify - Seamlessly with Inhousen
 
         === FINAL NOTES ===
+            - As a value addition, can you add this point in the email.
+                - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
             - Use clear formatting, short sentences, and 2-3 sentence paragraphs.
             - Write in a way that feels tailored and human — not like a generic mass email.
             - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
@@ -519,7 +523,7 @@ class EmailSequence(metaclass=Singleton):
         
         See the Full Case Study →
         
-        Our Business Developer, Nagma, will reach out this week to discuss how we can deliver similar results for your business.
+        Our Business Developer, Rounak, will reach out this week to discuss how we can deliver similar results for your business.
         
         Ready to talk sooner? Schedule a 15-minute call →
         
