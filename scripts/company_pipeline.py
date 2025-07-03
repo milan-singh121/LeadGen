@@ -146,6 +146,20 @@ class CompanyFetcherPipeline:
             full_df_cleaned = self.clean_company_data(full_df)
 
             if not full_df_cleaned.empty:
+                EXCLUDED_INDUSTRIES = {
+                    "Staffing and Recruiting",
+                    "Human Resources Services",
+                }
+
+                def should_keep(industries):
+                    if not isinstance(industries, list):
+                        return True
+                    return not any(ind in EXCLUDED_INDUSTRIES for ind in industries)
+
+                full_df_cleaned = full_df_cleaned[
+                    full_df_cleaned["industries"].apply(should_keep)
+                ].reset_index(drop=True)
+
                 # Step 6: Filter ICP-fit companies
                 icp_fit = (
                     full_df_cleaned[full_df_cleaned["upper_limit"] <= 200]
