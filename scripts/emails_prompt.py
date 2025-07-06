@@ -328,128 +328,129 @@ class EmailSequence(metaclass=Singleton):
         """
         return """
         EMAIL SEQUENCE: Email 1 of 5 – Initial Outreach  
-        OBJECTIVE: Warm introduction with clear relevance and credibility using a compelling customer story.
-    
+        OBJECTIVE: The objective is to give a warm introduction to the prospect with clear relevance and credibility using a compelling message. We can talk about the pain point the prospect could be facing based on their profile and job openings they have posted, and also mention the summary and name of the relevant client we have already served if the industry of both matches. Also, use a pain point relevant to their industry or business stage.
+
         === STRUCTURE & STRATEGY ===
 
-        ➤ SUBJECT LINE
-           Craft subject lines that make the prospect want to open the email. Keep them personalized, curiosity-driven, and relevant to the recipient’s role, company, or challenges.
+        ➤ SUBJECT LINE  
+            Craft subject lines that make the prospect want to open the email. Keep them personalized, curiosity-driven, and relevant to the recipient’s role, company, or challenges.
 
-            Guidelines:
-            	- Use their first name, role, or company naturally
-            	- Keep it under 10 words
-            	- Make it feel professional, not like a mass email
-            	- Focus on value, benefit, or intrigue
-            	- Improve clarity and uniqueness beyond the sample lines
-                - The subject lines should be relevant to the pain points for the company and industry.
-                - Always use client names if we have served clients in the similar industry as that of the prospects.
+        Guidelines:  
+            - Use their first name, role, or company naturally  
+            - Keep it short and compelling  
+            - Make it feel professional, not like a mass email  
+            - Focus on value, benefit, or intrigue  
+            - Improve clarity and uniqueness, and always refer to the sample lines  
+            - The subject lines should be relevant to the pain points for the company and industry  
+            - Always use client names if we have served clients in a similar industry as that of the prospects  
+            - Do not use "PS." in this email at any point in the content  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.  
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
 
-            Avoid: Generic lines like “Accelerate Your Hiring”. Push for specific, thoughtful hooks that spark interest.
-                    
+        Avoid: Generic lines like “Accelerate Your Hiring.” Push for specific, thoughtful hooks that spark interest.
+
         ➤ TONE  
-            - Conversational yet professional: Write as a real human would speak—warm, friendly, informed, confident but not aggressive.
+            - Conversational yet professional: Write as a real human would speak — warm, friendly, informed, confident but not aggressive. There should be very subtle transitions in the email, like starting with pain points, then subtly talking about a success story of a client, and then subtly presenting the value proposition.  
             - Avoid stiff corporate speak or overused sales clichés.
-    
+
         ➤ LANGUAGE  
             - American English  
             - Simple, clear, and persuasive. Avoid buzzwords or unnecessary technical details.
-    
+
         ➤ WORD COUNT  
-            - Between 75–120 words. Short, readable, and value-packed.
-    
+            - Between 100–120 words. Short, readable, and value-packed.
+
         ➤ PERSONALIZATION TRIGGERS (to appear early in the email):  
-           Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. Avoid exaggeration or unsupported claims — only include details that are grounded in the available data.
-        	- Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).
-        	- The email subject line should be creative and attention-grabbing, while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions.
-        	- Keep the tone professional but conversational, and include a subtle CTA if relevant.
-            - Mention the prospect’s **industry** (e.g., automotive e-commerce, fashion, food delivery). If we have previously served clients in similar industry then use their name and information to build trust.
+        Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. Avoid exaggeration or unsupported claims — only include details that are grounded in the available data.  
+            - Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).  
+            - The email subject line should be creative and attention-grabbing while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions. Always refer to the sample subject lines.  
+            - Keep the tone professional but conversational, and include a subtle CTA if relevant.  
+            - Mention the prospect’s **industry** (e.g., automotive e-commerce, fashion, food delivery). If we have previously served clients in a similar industry, use their name and information to build trust.  
             - Include the **specific use case** (e.g., platform migration, checkout speed optimization, design refresh).  
-            - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”).
-            - The email should always sound human and natural, don't make it sound like AI. The emails should be very smooth and clear.
-            - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
-            
-    
-        ➤ VALUE ANGLE
+            - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”). Only mention this if it's included in the relevant client's data — never falsely mention this information. Never hallucinate or provide incorrect information. Only mention clients and numbers if they are verified and mentioned in the data.  
+            - The email should always sound human and natural. Avoid making it sound like AI. The tone and flow must be smooth and clear.  
+            - You can always use this benefit and value proposition in this email: "Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region."
+
+        ➤ VALUE ANGLE  
             - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).  
-            - Immediately follow with a success story or case study that proves InHousen’s capabilities.
-            - In this email always remember to add this point as a Value Proposition:
-                - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
-    
+            - Immediately follow with a success story or case study that proves InHousen’s capabilities — but only if a relevant client's information is available. Otherwise, focus on how we can help.  
+            - In this email, always remember to add this point as a value proposition, in a subtle way:  
+            - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
+
+        ➤ CONTENT FORMAT  
+            - After subtly introducing the prospect’s pain point, if a relevant client from our database is found, then mention it this way: "We recently helped a [Client Industry] company migrate their system in 30 days, improving efficiency by [XX]%. Thought it might resonate."  
+            - If no relevant client is found, do not falsely claim that we helped a big company. In that case, simply focus on their pain point and how we can help.
+
         ➤ CLOSING  
-            - Mention that Rounak (Business Development Lead) will follow up shortly.  
-    
+            - Mention that Rounak (Business Development Lead) will follow up shortly.
+
         === PROMPT INSTRUCTION TO MODEL ===
-    
-        1. Analyze the following prospect attributes:
-            - Profile summary, job title, headline, current tech stack (if known), and industry.
-            - Map the company’s stage and likely digital maturity to common pain points (e.g., slow migration, data loss risk, mobile UX performance).
-    
-        2. Based on this context:
-            - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.
-            - Include data-backed results or efficiencies gained (from InHousen projects or relevant industry benchmarks).
-            - Ensure the story feels natural and applicable to the reader.
-    
-        3. Do NOT:
-            - Mention “support tickets”
-            - Start the email with a title-based intro like “As a Head of Engineering...”
-            - Push for a meeting in the first email — the goal is awareness and click engagement.
-        
-        4. Clients (Industry-Based Referencing):
-        
-        - If the prospect’s industry **matches any of the industry-specific client data provided** (e.g., `energy_clients`, `fashion_clients`, `fintech_clients`, etc.), you may:
-          - Reference those specific clients by name (if appropriate).
-          - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.
-          - Ensure the mention feels relevant and natural to the reader’s context.
-        
-        - If there is **no industry match**, follow these strict rules:
-          - Do **not** say we’ve worked with "similar companies" or imply industry similarity.
-          - Do **not** mention any client name.
-          - Instead, state subtly that we’ve worked with clients from **other industries** who faced **similar business challenges**.
-            - Example: “We’ve helped clients in different domains address similar scaling challenges using short-term, vetted talent.”
-        
-        - Under **no circumstance** should you:
-          - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry when we haven’t.
-          - Mention client geography or region (e.g., “in Europe”) unless explicitly provided.
-          - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
-        
+
+        1. Analyze the following prospect attributes:  
+        - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.  
+        - From their profile, identify potential pain points and how we can solve them as a staffing company.
+
+        2. Based on this context:  
+        - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.  
+        - Include data-backed results or efficiencies gained from InHousen projects or served clients.  
+        - Ensure the story feels natural and applicable to the reader.
+
+        3. Do NOT:  
+        - Mention “support tickets”.  
+        - Start the email with a title-based intro like “As a Head of Engineering...”  
+        - Push for a meeting in the first email — the goal is awareness and engagement. Instead, suggest that they book a meeting using the link provided if interested.
+
+        4. Clients (Industry-Based Referencing):  
+
+        - If relevant client data is available:  
+        - Reference specific clients by name (if appropriate).  
+        - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.  
+        - Ensure the mention feels relevant and natural to the reader’s context.
+
+        - If no relevant client data is available:  
+        - Do **not** say we’ve worked with "similar companies" or imply industry similarity.  
+        - Do **not** mention any client name.  
+        - Instead, focus on how we can help and highlight our value proposition.
+
+        - Under **no circumstances** should you:  
+        - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry if we haven’t.  
+        - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
+
         This logic must be strictly followed to ensure relevance, transparency, and trustworthiness.
 
         === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
-    
-        Subject Line Samples For Reference : [
-                                1. Future-Proof Your Website: Meet Inhousen
-                                2. Elevate Your Online Store Experience
-                                3. Ready to Upgrade Your Website Performance?
-                                4. From Lightspeed to Shopify - Seamlessly with Inhousen
-                                ]
 
-        Email just for reference and never to be copied.
+        Subject Line Samples for Reference:  
+        [
+        "Accelerate Your [Job Title] - Vetted Developers Available",
+        "Quality Frontend Developers for [Company Name] Growth",
+        "Flexible [Job Title] Solutions for Vallum Associates",
+        "Senior Full Stack Developers for Web3 Projects"
+        ]
 
-        Hi [First Name],
-        
-            I'm Ahmed, Co-founder of Inhousen — a Dutch-based tech solutions company. We specialize in helping businesses like yours build and optimize their digital storefronts. Whether it's maintaining your current Lightspeed website or migrating seamlessly to Shopify, we ensure high performance, better UX, and scalable growth.
+        Email Sample (for reference only, not to be copied):
             
-            Our team guarantees a smooth transition with minimal downtime and full design & data integrity.
-            
-            We've also attached our company portfolio—please do take a look to learn more about our work.
-            
-            Would love to show you how we can future-proof your online presence.
-            
+            Hi [First Name],<br><br>
+            I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses like yours build and optimize their digital storefronts. Whether it's maintaining your current Lightspeed website or migrating seamlessly to Shopify, we ensure high performance, better UX, and scalable growth.<br><br>
+            Our team guarantees a smooth transition with minimal downtime and full design & data integrity.<br><br>
+            We've also attached our company portfolio—please do take a look to learn more about our work.<br><br>
+            Would love to show you how we can future-proof your online presence.<br><br>
             Also, my colleague Rounak, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
 
         === SUBJECT LINE SUGGESTIONS ===  
-            1. Future-Proof Your Website: Meet Inhousen
-            2. Elevate Your Online Store Experience
-            3. Ready to Upgrade Your Website Performance?
-            4. From Lightspeed to Shopify - Seamlessly with Inhousen
+            This is the structure to be followed for the subject lines in this email:  
+            - First Name of the prospect + Objective (Accelerate, Quality, Flexible, etc.) + Job Opening + Company Name  
+            - Use the first name of the person, and optionally use the job title from the job opening and how we can help them with that  
+            - First name + the prospect’s requirement
 
-        === FINAL NOTES ===
-            - As a value addition, can you add this point in the email.
-                - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
-            - Use clear formatting, short sentences, and 2-3 sentence paragraphs.
-            - Write in a way that feels tailored and human — not like a generic mass email.
-            - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
-            - Generate only the email body. Do not include any signature or sign-off
+        === FINAL NOTES ===  
+            - As a value addition, include this point in the email subtly:  
+            - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.  
+            - Use clear HTML formatting and 2–3 sentence paragraphs.  
+            - Write in a way that feels tailored and human — not like a generic mass email.  
+            - Use the example emails as references — not to be copied directly — to create high-quality, compliant outputs.  
+            - Generate only the email body — do not include any signature or sign-off.  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         """
 
     @staticmethod
@@ -459,92 +460,101 @@ class EmailSequence(metaclass=Singleton):
         """
         return """
         EMAIL SEQUENCE: Email 2 of 5 – Educational Follow-up  
-        OBJECTIVE: Build credibility by educating the prospect on your company’s capabilities and success stories, reinforcing relevance, and encouraging a meeting.
-    
+        OBJECTIVE: Build credibility by educating the prospect on InHousen's capabilities and success stories, reinforcing relevance, and encouraging a meeting.
+
         === STRUCTURE & STRATEGY ===
-    
+
+        ➤ GUIDELINES  
+            - Do not use "PS." in this email at any point in the content.  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+
         ➤ TONE  
-            - Professional yet approachable: Informative but not pushy.  
+            - Professional yet approachable: informative but not pushy.  
             - Friendly and helpful — aim to nurture interest and trust.
-    
+
         ➤ LANGUAGE  
             - American English  
             - Clear, concise, and focused on benefits and outcomes.
-    
+
         ➤ WORD COUNT  
-            - Between 60–100 words. Short enough to read quickly, with high informational density.
-    
+            - Between 60–100 words. Short enough to be read quickly, with high informational density.
+
         ➤ PERSONALIZATION TRIGGERS (to appear early in the email):  
-            - Mention **Company Name** for personalization and recognition.  
-            - Highlight a **common pain point** within their **industry** to resonate with their challenges.
-            - Always remember to talk about the relevant case study based on the pain points.
-    
+            - Mention the **First Name** of the person for personalization and recognition.  
+            - Highlight a **common pain point** within their **industry** to resonate with their challenges.  
+            - Always include a relevant case study based on the identified pain point.
+
         ➤ VALUE ANGLE  
-            - Emphasize your portfolio and previous work — especially your Shopify migrations and storefront solutions.  
-            - Highlight results such as zero downtime, UX improvements, scalability, and data integrity.  
+            - Emphasize InHousen’s portfolio and previous work — especially Shopify migrations and storefront solutions.  
+            - Highlight tangible results such as zero downtime, UX improvements, scalability, and data integrity.  
             - Educate on how these solutions address typical industry pain points and support growth goals.
-    
+
         ➤ CLOSING  
-            - Express anticipation of future communication.  
+            - Express anticipation of future communication.
 
-    
         === PROMPT INSTRUCTION TO MODEL ===
-    
-        1. Review the prospect’s company name and industry.  
-        2. Identify a relevant pain point that companies in their industry commonly experience (e.g., migration complexity, platform downtime, poor UX).  
-        3. Generate a short, educational email that:
+
+            1. Review the prospect’s company name and industry.  
+            2. Identify a relevant pain point that companies in their industry commonly experience (e.g., migration complexity, platform downtime, poor UX).  
+            3. Generate a short, educational email that:  
             - References the prospect by company name.  
-            - Briefly introduces InHousen’s portfolio showcasing Shopify and storefront solutions.  
-            - Lists key benefits your solutions delivered in past projects (zero downtime, fast turnarounds, scalability, data integrity).  
-            - Invites them to schedule a 15-minute meeting for personalized discussion.
-    
-        4. Ensure the message is friendly, concise, and tailored to industry needs.  
-        5. Use bullet points or short paragraphs for easy scanning.  
-        6. Provide 3–4 subject line options related to portfolio and case study themes.
-    
-        === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
-    
-        Subject: [
-                   1. 30-Day Migration: How We Boosted Auto Parts Sales by 28%
-                    2. Lightspeed to Shopify in 30 Days (Without the Headaches)
-                    3. We Solved Their Lightspeed Problems in 30 Days. Yours Next?
-                    4. This Auto Parts Retailer's 30-Day Transformation (Case Study)
-                    ]
-
-        Email just for reference and never to be copied.
-
-        Hi [First Name],
-        
-        Let me share recent examples on how we helped an automotive e-commerce retailer migrate to Shopify in just 30 days with remarkable results:
-        
-        Zero downtime during transition
-        100% data integrity maintained
-        Custom parts search functionality
-        45% faster checkout completion
-        
-        See the Full Case Study →
-        
-        Our Business Developer, Rounak, will reach out this week to discuss how we can deliver similar results for your business.
-        
-        Ready to talk sooner? Schedule a 15-minute call →
-        
-        Looking forward to helping your business thrive online!
-        
-        P.S. I was dreading this migration for months, but your team made it so smooth I wish we'd done it sooner. - Recent Client
+            - Briefly introduces InHousen’s portfolio, showcasing Shopify and storefront solutions.  
+            - Lists key benefits our solutions have delivered in past projects (e.g., zero downtime, fast turnarounds, scalability, data integrity).  
+            - Invites the recipient to schedule a 15-minute meeting for a personalized discussion. Also, inform them that they can schedule the meeting using the link provided below.
             
-        === SUBJECT LINE SUGGESTIONS ===  
-            1. 30-Day Migration: How We Boosted Auto Parts Sales by 28%
-            2. Lightspeed to Shopify in 30 Days (Without the Headaches)
-            3. We Solved Their Lightspeed Problems in 30 Days. Yours Next?
-            4. This Auto Parts Retailer's 30-Day Transformation (Case Study)
+            4. Ensure the message is friendly, concise, and tailored to industry needs.  
+            5. Use bullet points or short paragraphs for easy scanning.  
+            6. Provide 3–4 subject line options related to portfolio and case study themes.
 
-    
+        === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
+
+        Subject Options (for reference only):
+            - The subjects should be more aligned towards the prospects need and pain points rather than a generic from template.
+            [
+            "30-Day Migration: How We Boosted Auto Parts Sales by 28%",
+            "Lightspeed to Shopify in 30 Days (Without the Headaches)",
+            "We Solved Their Lightspeed Problems in 30 Days. Yours Next?",
+            "This Auto Parts Retailer's 30-Day Transformation (Case Study)"
+            ]
+
+        Email just for reference and never to be copied:
+
+                Hi [First Name],<br><br>
+                
+                Just wanted to share a quick example of how we recently helped a <client's industry> company achieve meaningful results in just 30 days:<br><br>
+
+                [Our Offerings]
+                - Zero downtime during implementation<br>
+                - 100% data integrity maintained<br>
+                - Custom feature development based on their specific needs<br>
+                - 45% improvement in key performance metrics<br><br>
+                
+                Our Business Development Lead, Rounak, will be in touch this week to explore how we can drive similar outcomes for your team.<br><br>
+                Want to connect sooner? Feel free to use the meeting link below to schedule a quick chat.<br><br>
+                “I was dreading the transition for months, but your team made it so smooth — I wish we’d done it sooner.” – Recent Client
+
+        === SUBJECT LINE SUGGESTIONS ===  
+            1. Build the subject line by understanding their requirement and how we can help them with those requirements.  
+            2. Use this structure: Their requirement + how we can help them + value proposition.
+
         === FINAL NOTES ===  
             - Write in a way that sounds helpful and solution-oriented.  
+            - You can always add value propositions from the "About InHousen" dataset in this email to increase credibility.  
             - Keep sentences brief and paragraphs tight for easy reading.  
-            - Use the prospect’s company name and industry explicitly to personalize and demonstrate understanding.  
-            - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
-            - Generate only the email body. Do not include any signature or sign-off
+            - Use the prospect’s company name and industry explicitly to personalize and show understanding.  
+            - Use the above sample emails as references — not to be copied directly — to create the best emails that match the requirements.  
+            - Generate only the email body. Do not include any signature or sign-off.
+            - The subjects should be more aligned towards the prospects need and pain points rather than a generic from template.
+            - Important Email Content Instructions:
+                • The email content must be tightly aligned with the prospect’s specific requirements, role, and industry.
+                • Do not fabricate, guess, or include any generic, unrelated, or hypothetical information.
+                • Use only the data explicitly provided to you (e.g., client background, job post, LinkedIn profile, past interactions, case studies, etc.).
+                • If certain information (like a relevant case study, pain point, or client name) is not provided, do not invent it or imply it.
+                • Every statement must be verifiable and grounded in the provided inputs.
+                • Your response should reflect a deep understanding of their domain and avoid one-size-fits-all language.
+            
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
         """
 
     @staticmethod
@@ -554,83 +564,99 @@ class EmailSequence(metaclass=Singleton):
         """
         return """
         EMAIL SEQUENCE: Email 3 of 5 – Storytelling Focus  
-        OBJECTIVE: Build emotional connection by sharing a relevant client success story that aligns with the prospect’s scale, niche, or pain points — demonstrating how your solution delivered concrete results.
-    
+        OBJECTIVE: Build an emotional connection by sharing a relevant client success story (only if the client's data is available) that aligns with the prospect’s scale, niche, or pain points — demonstrating how our solution delivered concrete results. If client data is not available, then clearly communicate InHousen’s value proposition as the core of the message.
+
         === STRUCTURE & STRATEGY ===
-    
+
+        ➤ GUIDELINES  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+
         ➤ TONE  
             - Professional yet warm and engaging.  
-            - Conversational storytelling style to create empathy and trust.  
-            - Motivating and confident, showing how challenges were overcome.
-    
+            - Use a conversational storytelling style to create empathy and build trust.  
+            - Motivating and confident — clearly demonstrate how the challenge was overcome.
+
         ➤ LANGUAGE  
             - American English  
-            - Clear, vivid, and descriptive to paint a relatable picture.
-    
+            - Clear, vivid, and descriptive — painting a picture that is relatable and specific.
+
         ➤ WORD COUNT  
-            - Between 120–180 words to allow for a concise but meaningful narrative.
-    
-        ➤ PERSONALIZATION TRIGGERS (to appear early or within the story):  
-            - Reference **Client Type** similar to the prospect (e.g., fast-growing startup, mid-size retailer).  
-            - Mention a **challenge faced** by the client that resonates with the prospect’s industry or stage.  
-            - Highlight the **results in numbers** to emphasize impact and credibility.
-        
+            - Between 120–180 words to allow for a concise yet meaningful narrative.
+
+        ➤ PERSONALIZATION TRIGGERS (to appear early or within the story):
+            - Use the person’s **first name** for a more personalized and human tone.  
+            - Identify and clearly state the **challenge faced** by the referenced client or prospect.  
+            - Quantify the **result or impact** in clear metrics (e.g., "45% faster checkout") — but only if the data exists in the relevant client context.  
+            - Reference **Client Type** similar to the prospect (e.g., fast-growing startup, mid-size retailer) — again, only if that information is available in the client dataset.  
+            - If no relevant data is provided, do **not fabricate** or hallucinate details. Use only InHousen's own value propositions in that case.  
+        - Always highlight the **value angle** clearly, using verifiable results if available, and trust-building language if not.
+
         ➤ VALUE ANGLE  
-            - Use a real or plausible success story about a similar client’s challenge and the solution you provided.  
-            - Show measurable improvements like speed, scale, uptime, or efficiency gains.  
-            - Emphasize your team’s expertise and smooth process.
+            - If client data is available: Share a real, relevant success story about a similar company and the outcome of InHousen’s solution.  
+            - Emphasize measurable improvements like:  
+                - Faster load times  
+                - Zero downtime  
+                - Scalable infrastructure  
+                - SEO retention  
+            - If client data is not available: Focus entirely on InHousen’s strengths and capabilities — e.g., efficient processes, experienced talent, and tailored solutions.
 
         ➤ CLOSING  
-            - Positive and encouraging close, inviting further conversation.
-    
+            - End with a positive, forward-looking tone. Invite them to schedule a brief call or exploration session to discuss their situation.
+
         === PROMPT INSTRUCTION TO MODEL ===
-    
-            1. Start by acknowledging a common pain point or challenge that the prospect’s business likely faces (e.g., risks of website migration).  
-            2. Share a specific client story where InHousen helped a similar company overcome that challenge.  
-            3. Include concrete results with numbers to build credibility (e.g., “onboarded 3 data engineers who built an ETL pipeline processing 10x more data daily”).  
-            4. Highlight benefits such as zero downtime, SEO retention, and optimized performance.  
-            5. End with an invitation to schedule a quick consultation to discuss personalized solutions.
-    
-        6. Ensure language is empathetic and solution-focused without jargon or over-promising.
-    
-        === SAMPLE OUTPUT STRUCTURE (Do not copy them, these are just for reference and not to be copied) ===
-    
-        Subject: [1. Website Migration Doesn't Have to Be Painful
-                  2. Say Goodbye to Website Downtime Fears
-                  3. Seamless Transition to Shopify - See How
-                  4. Is Website Migration Holding Back Your Growth?
-                  ]
 
-        Email just for reference and never to be copied.
+            1. Begin by identifying a common business challenge the prospect is likely facing based on their industry, size, or job listings (e.g., "risk of website migration," "complex hiring needs," etc.).  
+            2. If the dataset includes a relevant client that experienced a similar challenge:  
+            - Mention the client (only if their name is in the provided data).  
+            - Describe the challenge they faced.  
+            - Explain what InHousen did and the measurable results.  
+            3. If no client data is available, avoid mentioning any specific names or figures. Instead, rely on InHousen's value propositions to establish credibility.  
+            4. Emphasize InHousen’s capabilities, such as:  
+            - Seamless transitions  
+            - Zero downtime  
+            - SEO retention  
+            - Streamlined performance improvements  
+            5. Close with an invitation to explore how similar results can be delivered for the prospect’s business.  
+            6. Ensure the overall tone is empathetic, confident, natural, and trustworthy — not overly promotional or robotic.
 
-        Hi [First Name],
-        
-        We understand website migrations can feel risky—loss of data, broken designs, SEO drops.
-        
-        At Inhousen, we ensure:
-        
-        Full SEO retention
-        Smooth design and content transfer
-        Optimized loading speeds post-migration
-        Zero downtime during transition
-        
-        Our migration specialist would love to discuss your specific needs. Ready to explore options?
+        === SAMPLE OUTPUT STRUCTURE (For Reference Only — Do Not Copy) ===
 
-        
-        Let's help you shift smarter, not harder.
+        Subject Line Samples (for reference only):  
+            [
+            "Website Migration Doesn't Have to Be Painful",
+            "Say Goodbye to Website Downtime Fears",
+            "Seamless Transition to Shopify — See How",
+            "Is Website Migration Holding Back Your Growth?"
+            ]
+
+        Example email (for reference only — not to be copied):
+
+            Hi [First Name],<br><br>
+            We understand website migrations can feel risky — loss of data, broken designs, SEO drops.  
+            At InHousen, we ensure:<br><br>
+                - Full SEO retention<br>
+                - Smooth design and content transfer<br>
+                - Optimized loading speeds post-migration<br>
+                - Zero downtime during the transition<br><br>
+            Our migration specialist would love to discuss your specific needs. Ready to explore options?<br><br>
+            Let’s help you shift smarter, not harder.
 
         === SUBJECT LINE SUGGESTIONS ===  
-            1. Website Migration Doesn't Have to Be Painful
-            2. Say Goodbye to Website Downtime Fears
-            3. Seamless Transition to Shopify - See How
-            4. Is Website Migration Holding Back Your Growth?
+            - Combine insight + the prospect’s requirement + our value proposition  
+            - For example: “Faster Site Speed for [Prospect’s Industry] Growth” or “Avoid Downtime During Checkout Optimization”  
+            - Focus on emotional resonance (risk/fear reduction) and impact (results/benefits)
 
         === FINAL NOTES ===  
-            - Use bullet points for readability when listing benefits.  
-            - Personalize by using the prospect’s name and referencing a relatable client type.  
-            - Keep the tone empathetic but confident.
-            - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
-            - Generate only the email body. Do not include any signature or sign-off
+            - Use bullet points for easy reading and visual clarity.  
+            - Use HTML formatting for line breaks (<br>) and appropriate spacing.  
+            - Personalize with the prospect’s name and reference a relatable client type or challenge if appropriate.  
+            - The tone should be warm, credible, and lightly persuasive — not salesy.  
+            - Use the above email samples only as references. Do not copy them.  
+            - Generate only the **email body** — do not include any sign-off or signature.  
+            - Important Note: Never fabricate client data or results. Always use facts that are explicitly available in your dataset. If no data is available, focus only on InHousen’s general capabilities and value propositions.  
+            - Use clean formatting, maintain consistent spacing, and keep the structure readable across devices.
+            - Ensure that no placeholders are left empty in the final email. Before generating the output, thoroughly check that all dynamic fields (e.g., name, company, industry, pain points) are properly filled based on the provided data. The email should feel complete, coherent, and ready to send without requiring manual edits.
         """
 
     @staticmethod
@@ -640,84 +666,105 @@ class EmailSequence(metaclass=Singleton):
         """
         return """
         EMAIL SEQUENCE: Email 4 of 5 – Satirical + Casual Tone  
-        OBJECTIVE: Use light humor and relatable satire to engage prospects by playfully highlighting common frustrations in their role or company culture — then present your flexible solution as the easy fix.
-    
+        OBJECTIVE: Use light humor and relatable satire to engage prospects by playfully highlighting common frustrations in their role or company culture — and then present your flexible solution as the easy fix.
+
         === STRUCTURE & STRATEGY ===
-    
+
+        ➤ GUIDELINES  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+
         ➤ TONE  
             - Satirical, witty, and casual to create a friendly, approachable vibe.  
-            - Humor should be relevant and respectful, tailored to the prospect’s job title and decision bottlenecks.  
-            - Use playful sarcasm or funny comparisons that the prospect can relate to.
-    
+            - Humor should be relevant and respectful, tailored to the prospect’s job title and known bottlenecks in the decision-making process.  
+            - Use playful sarcasm or light, funny comparisons the prospect is likely to relate to.
+
         ➤ LANGUAGE  
             - Conversational American English with humor and light sarcasm.  
-            - Avoid heavy jargon; keep it accessible and engaging.
-        
+            - Avoid heavy jargon — keep the tone accessible and enjoyable.
+
         ➤ WORD COUNT  
-            - Between 150–200 words to build a humorous narrative without losing clarity.
-    
-        ➤ PERSONALIZATION TRIGGERS:  
-            - Use the prospect’s **Job Title** or role to tailor humor and references.  
-            - Reference a common **Decision Bottleneck** or frustration in their workflow.  
-            - Include a **Funny, Relatable Comparison** to make the email memorable.
-    
+            - Between 150–200 words to allow enough room for a humorous narrative while preserving clarity.
+
+        ➤ PERSONALIZATION TRIGGERS  
+            - Use the prospect’s **first name** and **job designation** for a more personalized and human tone. Always make sure that you start the email with Person's first name.
+            - Job Title + Decision Bottleneck + Funny Relatable Comparison  
+            - Use the prospect’s **Job Title** or role to tailor references and humor.  
+            - Identify a common **Decision Bottleneck** they might experience (e.g., slow approval cycles, outdated tools, over-complicated workflows).  
+            - Use a **Funny, Relatable Comparison** to make the email memorable and human.
+
         ➤ VALUE PROPOSITION  
-            - Highlight your company’s flexibility, simplicity, and customer-first approach.  
-            - Emphasize no long-term contracts, transparent pricing, and easy exit options.  
-            - Position your offering as the antidote to cumbersome corporate processes (“no corporate witchcraft needed”).
-        
+            - Emphasize InHousen’s flexibility, simplicity, and client-first mindset.  
+            - Highlight clear points of differentiation, such as: You can get other value propositions and offerings from About Inhousen section.
+                - No long-term contracts  
+                - Transparent, upfront pricing  
+                - One-month exit clause  
+                - High-quality, on-demand talent  
+            - Position your offering as the no-BS, zero-friction alternative to traditional agencies and convoluted hiring models.
+
         ➤ CLOSING  
-            - Casual and warm sign-off, reinforcing accessibility and readiness to help.
-    
+            - Use a casual and warm tone to wrap up, reinforcing InHousen’s accessibility and readiness to help.  
+            - Invite them to schedule a quick exploratory call.
+
         === PROMPT INSTRUCTION TO MODEL ===
-    
-        1. Open with a witty observation about a frustrating process typical for the prospect’s role (e.g., “Still running hiring through 12 rounds of approvals and 3 ghosts?”).  
-        2. Introduce your company’s flexible solution as the antidote, with humor that avoids sounding salesy.  
-        3. List key benefits in a clear, friendly bullet format: no contracts, transparent pricing, flexible exit.  
-        4. Encourage scheduling a quick call with a casual but clear CTA.  
-        5. Use a friendly closing and include company/contact details.
-    
-        === SAMPLE OUTPUT STRUCTURE (Do not copy them, these are just for reference and not to be copied) ===
-    
-        Subject: [1. Need a Tech Team Without the Long-Term Lock-in?
 
-                  2. Our Flexible Engagement Options Might Surprise You
-                
-                  3. Custom Website Work — Only When You Need It
-                
-                  4. One-Month Exit, Full Support — Inhousen Style]
+            1. Start the email with a light, witty observation that pokes fun at a frustrating reality in the prospect’s work life (e.g., “Still running hiring through 12 approval rounds and 3 invisible stakeholders?”).  
+            2. Follow that with a humorous but clear introduction of InHousen’s solution as a refreshing alternative.  
+            3. Present the key value points using clean bullet formatting:  
+                - No long-term contracts  
+                - Transparent pricing  
+                - One-month exit  
+                - Just top talent, when you need it  
+            4. Prompt the prospect to consider if they’d like to explore how this approach could work for them.  
+            5. Keep the tone laid-back and upbeat while still being informative.  
+            6. Encourage scheduling a call using a clear CTA, but without a hard sales push.
 
-        Email just for reference and never to be copied.
- 
-        Hi [First Name],
+        === SAMPLE OUTPUT STRUCTURE (FOR REFERENCE ONLY — DO NOT COPY) ===
 
-        One thing our clients love most about Inhousen? Flexibility.
-        
-        Whether you want one-time Shopify migration help or an ongoing partner for UX/UI improvements, we’ve got a model that works for you — including:
-        
-        No long-term contracts
-        
-        Transparent pricing
-        
-        One-month exit clause
-        
-        Just top-notch talent, when and how you need it.
-        
-        Want to explore how this could work for your business?
-    
+        Subject Lines (for reference only):  
+            [
+            "Need a Tech Team Without the Long-Term Lock-in?",
+            "Our Flexible Engagement Options Might Surprise You",
+            "Custom Website Work — Only When You Need It",
+            "One-Month Exit, Full Support — InHousen Style"
+            ]
+
+        Sample email body (just for format reference — do not copy directly):
+            - The email body must be personalized to the specific prospect and should not feel copied or generic. Carefully analyze the prospect’s needs, context, and challenges, then thoughtfully align those with InHousen’s value propositions. The final output should reflect a natural blend of both — addressing the prospect’s situation directly while showcasing relevant ways InHousen can help.
+
+            Hi [First Name],<br><br>
+
+            Still trying to push a new initiative through six rounds of internal approvals, a Slack poll, and maybe a prayer circle?<br><br>
+            Let’s make things easier.<br><br>
+            At InHousen, we keep things refreshingly simple — built to support your team without the usual friction:<br><br>
+                – No long-term contracts<br>
+                – Transparent, upfront pricing<br>
+                – One-month exit flexibility<br>
+                – Scale engagement up or down based on your needs<br><br>
+            No corporate rituals, no buried terms — just real results from a team that’s easy to work with.<br><br>
+            Want to see how it could work for your team?<br><br>
+
+
         === SUBJECT LINE SUGGESTIONS ===  
-            1. Need a Tech Team Without the Long-Term Lock-in?  
-            2. Our Flexible Engagement Options Might Surprise You  
-            3. Custom Website Work — Only When You Need It  
-            4. One-Month Exit, Full Support — Inhousen Style  
-    
+            - Build subject lines using casual, witty language that aligns with the value angle.
+            - Examples (for structure only — model should generate new ones):  
+                - "[First Name], still dealing with 3-week approval cycles?"  
+                - "Top-tier talent, no long-term lock-in — too good to be true?"  
+                - "Flexible tech support, minus the fine print"  
+                - "One-month exit, full-stack support — InHousen style"
+
         === FINAL NOTES ===  
-            - Use humor sparingly but effectively to relate, never to offend.  
-            - Ensure the email flows naturally, balancing playfulness with professionalism.  
-            - Include personalization tokens and tailor jokes to industry or role-specific pain points.  
-            - Use bullets points and proper line spaces for readability.
-            - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
-            - Generate only the email body. Do not include any signature or sign-off
+            - Humor should be inclusive, never offensive or sarcastic at the prospect’s expense.  
+            - Tailor jokes to the industry, role, or pain points — avoid generic or out-of-touch satire.  
+            - Write in a way that sounds human, direct, and fun — not overly clever or forced.  
+            - Maintain clear formatting:
+                - HTML line breaks (`<br>`) for spacing
+                - Short paragraphs or bullet lists for readability
+            - Use the provided samples for structure only — never copy content directly.
+            - Generate only the **email body** — do not include any sign-off or signature.
+            - Important: Never misrepresent the offering. Keep all value claims factual and based on InHousen’s actual capabilities.
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+            - The email body must be personalized to the specific prospect and should not feel copied or generic. Carefully analyze the prospect’s needs, context, and challenges, then thoughtfully align those with InHousen’s value propositions. The final output should reflect a natural blend of both — addressing the prospect’s situation directly while showcasing relevant ways InHousen can help.
         """
 
     @staticmethod
@@ -727,80 +774,97 @@ class EmailSequence(metaclass=Singleton):
         """
         return """
         EMAIL SEQUENCE: Email 5 of 5 – Professional, Concise Breakup Email  
-        OBJECTIVE: Politely acknowledge the prospect’s busy schedule and lack of response, offer an easy opt-out, and remind them gently of additional offerings — all while keeping it short, respectful, and professional.
-    
+        OBJECTIVE: Politely acknowledge the prospect’s busy schedule and lack of response, offer an easy opt-out, and gently remind them of additional offerings — all while keeping the message short, respectful, and professional.
+
         === STRUCTURE & STRATEGY ===
-    
+
+        ➤ GUIDELINES  
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+            - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+
         ➤ TONE  
             - Professional, courteous, and respectful.  
-            - Warm but direct — acknowledging their potential lack of interest without pressure.  
-            - Clear and straightforward language.
-    
+            - Warm but direct — acknowledge their potential lack of interest without applying pressure.  
+            - Maintain clear, sincere, and straightforward communication.
+
         ➤ LANGUAGE  
             - Simple, plain American English.  
-            - Avoid jargon or overly salesy language.  
-            - Personalize with [First Name] and [Designation].
-    
+            - Avoid jargon or overly promotional/salesy language.  
+            - Personalize with the prospect’s [First Name] and [Designation].
+
         ➤ WORD COUNT  
-            - Very concise: 50–70 words to respect their time.
-    
+            - Keep the message concise: between 50–70 words to respect their time and inbox space.
+
         ➤ PERSONALIZATION TRIGGERS  
-            - Use the prospect’s first name and job designation to create a personal touch.  
-            - Reference the common reality of a busy inbox.
-    
-        ➤ CONTENT FOCUS  
-            - Soft breakup message: “I won’t keep nudging if now’s not right.”  
-            - Remind them of other services your company offers beyond full migrations (design, UX, performance improvements).  
-            - Highlight that small improvements can add value without big overhauls.
-    
+            - Always make sure that you start the email with Person's first name.
+            - Use the prospect’s **first name** and **job designation** for a more personalized and human tone.  
+            - Acknowledge the common reality of a busy inbox and packed schedule.
+
+        ➤ CONTENT FOCUS
+            - Since the prospect has not responded to any of the previous emails, this should be treated as the final email in the sequence.
+            - Ask if you are not the right person, then can they direct us to the right person?
+            - Deliver a polite and professional “breakup message,” such as:  
+            *“I won’t keep nudging if the timing’s not right.”*  
+            - Remind them briefly that InHousen offers more than just full-scale migrations:  
+                - Mention all the relevant Inhousen offerings
+            - If they’re not interested at the moment, they can always reach out to us in the future if they have any requirements.
+            - Highlight how **incremental improvements** can lead to meaningful impact — without needing a full overhaul.  
+            - Invite them to schedule a brief call if and when the time is right. If the time feels right, feel free to schedule a quick call using the meeting link below.
+            - Include a polite line asking:
+                - “If you’re not the right person for this, could you kindly point me to the person who is?”
+
         === PROMPT INSTRUCTION TO MODEL ===
-    
-            1. Start by acknowledging the prospect’s busy inbox and the possibility that the timing may not be right.  
-            2. Politely offer to stop outreach if no response is received.  
-            3. Briefly highlight other services you offer that don’t require a full migration or overhaul.  
-            4. Emphasize that incremental improvements can have meaningful impact.  
-            5. Invite them to schedule a brief chat with a simple clickable CTA.  
-            6. End with a friendly, professional sign-off.
-    
-        === SAMPLE OUTPUT STRUCTURE (Do not copy them, these are just for reference and not to be copied) ===
-    
-        Subject: [1. Still Debating That Website Upgrade?
+            - Always make sure that you start the email with Person's first name.
+            1. Start the message by acknowledging that the prospect may be too busy or that the timing might not be right at the moment. You can always atrt the email with their first name. 
+            2. Politely offer to stop the outreach and give them the option to re-engage on their terms.  
+            3. Mention additional offerings from InHousen that can be helpful even without a full migration. These may include:  
+                - Design & usability improvements  
+                - Adding custom features for UX  
+                - Optimizing site speed and mobile performance  
+            4. Reinforce the idea that **small changes** can make a big difference.  
+            5. Include a **simple, optional CTA** inviting them to schedule a quick conversation.  
+            6. Close on a polite and optimistic note, without being pushy.
 
-                  2. Here If You’re Ready to Modernize
+        === SAMPLE OUTPUT STRUCTURE (FOR FORMAT REFERENCE ONLY — DO NOT COPY) ===
 
-                  3. Your Website Can Do More — We’ll Show You How
-                  ]
+        Subject Lines (for reference only): 
+            - 	The subject lines must be personalized based on the prospect’s specific needs or context. Since this is the final email in the sequence, the subject should also reflect an appropriate closing tone — respectful, concise, and relevant to their decision stage.
+            [
+            "Still Debating That Website Upgrade?",
+            "Here If You’re Ready to Modernize",
+            "Your Website Can Do More — We’ll Show You How"
+            ]
 
-        Email just for reference and never to be copied.
-    
-        Hi [First Name],
+        Sample email body (for structure only — not to be copied):
 
-        Just circling back — if a full migration isn’t on your roadmap yet, no worries.
-        
-        We also help Lightspeed users:
-        
-        Improve design & usability without switching platforms
-        
-        Add custom features for better UX
-        
-        Optimize site speed and mobile performance
-        
-        You don’t have to overhaul everything at once.
-        
-        Even small wins add up fast — want to explore what’s possible?
-    
-        === SUBJECT LINE SUGGESTIONS ===  
-            1. Still Debating That Website Upgrade?
-            2. Here If You’re Ready to Modernize
-            3. Your Website Can Do More — We’ll Show You How
-    
+            Hi [First Name],<br><br>
+            
+            Totally understand if now’s not the right time — no pressure at all.<br><br>
+            
+            Just in case it’s helpful down the line, we also support teams with:<br><br>
+                - UX and design improvements without a full migration<br>
+                - Custom functionality for better user experience<br>
+                - Performance tuning (site speed, mobile optimization)<br><br>
+            
+            Even small changes can deliver big results.<br><br>
+            Feel free to reach out anytime if you'd like to explore options.
+
+        === SUBJECT LINE SUGGESTIONS ===
+            - The subject lines must be personalized based on the prospect’s specific needs or context. Since this is the final email in the sequence, the subject should also reflect an appropriate closing tone — respectful, concise, and relevant to their decision stage.
+            - Tailor subject lines to gently re-engage curiosity or address the idea of small, manageable improvements.  
+            - Examples (structure only — the model should generate new, context-aware versions):  
+                - "Still Considering That [Job Requirement Title], [First Name]?"  
+                - "Small Wins, Big Impact — Just Checking In"  
+                - "We Can Help — Even Without a Full Redesign"
+
         === FINAL NOTES ===  
-            - Keep the tone polite and professional, avoiding any pushiness.  
-            - Use bullet points for clarity on additional offerings.  
-            - Maintain a soft, respectful approach to break up the sequence gracefully.  
-            - Personalize with contact first name and designation for relevance.  
-            - Use the above emails as samples—not to be copied directly, but as references—to create the best emails that match the requirements.
-            - Generate only the email body. Do not include any signature or sign-off
+            - Keep the tone professional, warm, and non-intrusive.  
+            - Avoid sounding passive-aggressive or overly eager.  
+            - Bullet key value points clearly for quick readability.  
+            - Use the prospect’s name and role to personalize the message where appropriate.  
+            - Do not pressure them into replying — just offer an open door.  
+            - Generate only the email body — do not include a signature or contact info.  
+            - Important Note: Ensure the formatting is clean and professional. Use HTML line breaks (`<br>`) for spacing, and maintain consistent spacing throughout. Apply single or double line breaks thoughtfully to support structure and readability.
         """
 
     @staticmethod
@@ -1137,7 +1201,81 @@ class EmailSequence(metaclass=Singleton):
         This function contains system prompt for email sequence.
         """
         system_prompt = f"""
-        You are an expert in creating emails for the marketing team at InHousen. Your responses will be generated in XML format.
+        You are an expert in writing high-conversion cold email sequences for the marketing team at InHousen. You generate high-quality, personalized, and context-aware emails strictly in XML format as described below—without any reasoning, explanation, or commentary.
+
+        🎯 OBJECTIVE:
+        Craft highly personalized, conversion-optimized cold emails that focus on the **prospect’s specific problems, context, and goals**—not just on InHousen’s services or features.
+
+        📌 CORE RULES TO FOLLOW:
+        - Do NOT pitch features directly; instead, center the email on the **prospect’s benefit, pain points, and context**.
+        - Each email must be **personalized, human-sounding**, and written in **simple, clear American English**.
+        - Strictly avoid all generic phrases and sales clichés such as “streamlined,” “empowered,” “pivotal,” “revolutionary,” etc.
+        - Use **different angles, tones, and approaches** in every email in the sequence. No repetition of structure, wording, or ideas.
+        - Do NOT fabricate or hallucinate any information. Only use information explicitly provided in the prospect and client data.
+        - Do NOT repeat the prospect’s job title or name across multiple emails.
+        - If the **prospect’s public data (e.g., LinkedIn post, company news)** contains milestones, humor, or insights—use them.
+        - When relevant, **reference clients from the same industry** with credible data and outcomes, if mentioned in the inputs. Do not generalize or fabricate similarities.
+        - If a client’s story is mentioned in one email, do not reuse it unless offering new and relevant context.
+        - Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+        - When referencing the prospect’s personal or company details (such as name, job title, company name, or industry), always ensure they are accurate and match the provided prospect data exactly. Double-check for correct spelling, formatting, and context relevance to maintain a personalized and professional tone throughout the email.
+
+        ✍️ WRITING STYLE:
+        - Tone: Warm, thoughtful, curious, or lightly humorous depending on the email number and purpose. Avoid robotic or overly corporate tones.
+        - Use short, punchy sentences and natural phrasing to sound **human and helpful**.
+        - Always ensure correct HTML formatting for line breaks (`<br>`). Apply single or double breaks for readability.
+        - Use **bullet points** or **numbered lists** wherever clarity can be improved.
+        - Highlight important **numbers, use cases, or keywords** using structure (e.g., new line, HTML emphasis).
+        - DO NOT begin with clichéd openings like “Hope you're doing well” or “Just checking in.”
+
+        📊 PERSONALIZATION & DATA USAGE:
+        - Reference personal or company-specific data like:
+        - Job titles, hiring challenges, LinkedIn posts, awards, announcements, tech stack, or company goals.
+        - Translate non-English content from the prospect’s public posts if contextually useful.
+        - Mention relevant clients by name **only if** they are verifiably in the same industry and backed by data. Mention should feel **natural and build trust**.
+        - Include subtle metaphors, pop culture, or comparisons only if they align with the user’s tone and persona.
+
+        ⛔️ STRICTLY AVOID:
+        1. ❌ Do NOT use fabricated scenarios or unverifiable metrics
+        Explanation:
+            • You must never include hypothetical stories, fake case studies, assumed results, or imaginary client names in the email.
+            • Do not say things like “we helped a company like yours grow 2x” unless the exact company name and metric are explicitly provided in the input data.
+            • Avoid vague claims such as:
+            • “We’ve worked with hundreds of companies in your space” (unless count is confirmed)
+                • “We typically see a 40% increase in conversions” (unless such data is supplied)
+                • Stick strictly to factual, verifiable data given to you. If you don’t have it, do not infer, generalize, or invent.
+
+        2. ❌ Do NOT repeat the prospect’s job title, company name, or achievements across multiple emails in the same sequence
+        Explanation:
+            • Use the prospect’s name, job title, or company-specific information only once throughout the five-email sequence.
+            • For example, if you mention the title “CMO at Acme Inc.” in email 1, do not refer to “CMO” or “Acme Inc.” again in the body or subject of emails 2 to 5.
+            • Avoid over-personalizing each email with the same reference — this feels robotic and redundant.
+            • Instead, vary personalization strategies: one email may use their company; another might use a LinkedIn post; another might reference industry peers or problems.
+
+        3. ❌ Do NOT use overly aggressive CTAs (Call to Actions) or make assumptions about the prospect’s interest
+        Explanation:
+            •	Avoid pushy language that assumes the prospect is ready to take action.
+            •	DO NOT use lines like:
+                •	“Let’s get started today.”
+                •	“Schedule your onboarding now.”
+                •	“Don’t miss out on this opportunity.”
+            •	Instead, use softer, respectful invitations like:
+                •	“Open to exploring ideas?”
+                •	“Would it make sense to chat?”
+                •	“Happy to send more details if you’re interested.”
+            •	Treat the prospect as busy and intelligent—respect their autonomy and timing.
+        
+        4. ❌ Do NOT use robotic, overly formal, or salesy language
+        Explanation:
+            • Emails should read like thoughtful, human conversation—not like they were written by a corporate sales bot.
+            • Avoid phrases like:
+                • “We are thrilled to present our innovative solution…”
+                • “Unlock unprecedented value with our platform…”
+                • “We revolutionize the way businesses operate…”
+            • Instead, use plainspoken, empathetic, natural phrasing like:
+                • “One thing we often hear from folks in your role is…”
+                • “You’ve probably seen how slow migrations can drag growth…”
+            • Use warmth, curiosity, and brevity. Imagine the email being read on a phone in 10 seconds.
+    
 
         You must create emails following these instructions:
 
