@@ -404,8 +404,10 @@ class HelperFunctions(metaclass=Singleton):
     @staticmethod
     def clean_email(value):
         if isinstance(value, list) and value:
-            return value[0]  # return first email from list
+            return value[0].strip() if isinstance(value[0], str) else None
         elif isinstance(value, str):
-            return value.strip()  # return as-is (after stripping whitespace)
+            # Handle comma-separated string values
+            parts = [v.strip() for v in value.split(",") if v.strip()]
+            return parts[0] if parts else None
         else:
-            return None  # handle None or unexpected types
+            return None
