@@ -327,134 +327,266 @@ class EmailSequence(metaclass=Singleton):
         This function contains the email template for email sequence 1.
         """
         return """
-        EMAIL SEQUENCE: Email 1 of 5 – Initial Outreach  
+        EMAIL SEQUENCE: Email 1 of 5 – Initial Outreach
         OBJECTIVE: The objective is to give a warm introduction to the prospect with clear relevance and credibility using a compelling message. We can talk about the pain point the prospect could be facing based on their profile and job openings they have posted, and also mention the summary and name of the relevant client we have already served if the industry of both matches. Also, use a pain point relevant to their industry or business stage.
+
+        =================================================
+        === CORE RULE: CLIENT MENTION & FACTUALITY POLICY ===
+        =================================================
+        This is the most important rule and overrides all other instructions.
+
+        1.  **Check for a Relevant Client:** A client is ONLY relevant if their industry in the provided data **exactly matches** the prospect's industry.
+
+        2.  **IF a relevant client is found:**
+            - You MUST use their specific name and data.
+            - Use this content format: "We recently helped [Client Name], a company in your industry, to [achieve a specific, quantifiable result like 'migrate their system in 30 days, improving efficiency by XX%']. Thought it might resonate."
+            - Only use the quantifiable results if they are provided in the client's data.
+
+        3.  **IF no relevant client is found (or no client data is provided):**
+            - You are **STRICTLY PROHIBITED** from mentioning any client name, case study, or success story.
+            - **DO NOT** invent clients, use placeholder names, or refer to "similar companies," "a company in your industry," or any other generic descriptor.
+            - In this case, the email must focus only on the prospect's potential pain points and our general value proposition.
+
+        **This logic is absolute. Factual accuracy is the top priority.**
+        =================================================
+
 
         === STRUCTURE & STRATEGY ===
 
-        ➤ SUBJECT LINE  
+        ➤ SUBJECT LINE
             Craft subject lines that make the prospect want to open the email. Keep them personalized, curiosity-driven, and relevant to the recipient’s role, company, or challenges.
 
-        Guidelines:  
-            - Use their first name, role, or company naturally  
-            - Keep it short and compelling  
-            - Make it feel professional, not like a mass email  
-            - Focus on value, benefit, or intrigue  
-            - Improve clarity and uniqueness, and always refer to the sample lines  
-            - The subject lines should be relevant to the pain points for the company and industry  
-            - Always use client names if we have served clients in a similar industry as that of the prospects  
-            - Do not use "PS." in this email at any point in the content  
-            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.  
+        Guidelines:
+            - Use their first name, role, or company naturally
+            - Keep it short and compelling
+            - Make it feel professional, not like a mass email
+            - Focus on value, benefit, or intrigue
+            - Improve clarity and uniqueness, and always refer to the sample lines
+            - The subject lines should be relevant to the pain points for the company and industry
+            - **[REMOVED]** The conflicting line about using clients from similar industries has been removed.
+            - Do not use "PS." in this email at any point in the content
+            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
             - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
 
         Avoid: Generic lines like “Accelerate Your Hiring.” Push for specific, thoughtful hooks that spark interest.
 
-        ➤ TONE  
-            - Conversational yet professional: Write as a real human would speak — warm, friendly, informed, confident but not aggressive. There should be very subtle transitions in the email, like starting with pain points, then subtly talking about a success story of a client, and then subtly presenting the value proposition.  
+        ➤ TONE
+            - Conversational yet professional: Write as a real human would speak — warm, friendly, informed, confident but not aggressive. There should be very subtle transitions in the email, like starting with pain points, then subtly talking about a success story of a client, and then subtly presenting the value proposition.
             - Avoid stiff corporate speak or overused sales clichés.
 
-        ➤ LANGUAGE  
-            - American English  
+        ➤ LANGUAGE
+            - American English
             - Simple, clear, and persuasive. Avoid buzzwords or unnecessary technical details.
 
-        ➤ WORD COUNT  
+        ➤ WORD COUNT
             - Between 100–120 words. Short, readable, and value-packed.
 
-        ➤ PERSONALIZATION TRIGGERS (to appear early in the email):  
-        Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. Avoid exaggeration or unsupported claims — only include details that are grounded in the available data.  
-            - Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).  
-            - The email subject line should be creative and attention-grabbing while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions. Always refer to the sample subject lines.  
-            - Keep the tone professional but conversational, and include a subtle CTA if relevant.  
-            - Mention the prospect’s **industry** (e.g., automotive e-commerce, fashion, food delivery). If we have previously served clients in a similar industry, use their name and information to build trust.  
-            - Include the **specific use case** (e.g., platform migration, checkout speed optimization, design refresh).  
-            - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”). Only mention this if it's included in the relevant client's data — never falsely mention this information. Never hallucinate or provide incorrect information. Only mention clients and numbers if they are verified and mentioned in the data.  
-            - The email should always sound human and natural. Avoid making it sound like AI. The tone and flow must be smooth and clear.  
+        ➤ PERSONALIZATION TRIGGERS (to appear early in the email):
+        Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. All client and data mentions MUST follow the CORE RULE above.
+            - Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).
+            - The email subject line should be creative and attention-grabbing while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions. Always refer to the sample subject lines.
+            - Keep the tone professional but conversational, and include a subtle CTA if relevant.
+            - The email should always sound human and natural. Avoid making it sound like AI. The tone and flow must be smooth and clear.
             - You can always use this benefit and value proposition in this email: "Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region."
-            - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
-            - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
+            - **[REMOVED]** All redundant instructions about client mentions have been removed as they are now covered by the CORE RULE at the top.
 
-        ➤ VALUE ANGLE  
-            - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).  
-            - In this email, always remember to add this point as a value proposition, in a subtle way:  
+        ➤ VALUE ANGLE
+            - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).
+            - In this email, always remember to add this point as a value proposition, in a subtle way:
             - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
 
-        ➤ CONTENT FORMAT  
-            - After subtly introducing the prospect’s pain point, if a relevant client from our database is found, then mention it this way: "We recently helped a [Client Industry] company migrate their system in 30 days, improving efficiency by [XX]%. Thought it might resonate."  
-            - If no relevant client is found, do not falsely claim that we helped a big company. In that case, simply focus on their pain point and how we can help.
+        ➤ CONTENT FORMAT
+            - **[REMOVED and REPLACED]** This section is now governed entirely by the CORE RULE at the top of the prompt.
 
-        ➤ CLOSING  
+        ➤ CLOSING
             - Mention that Rounak (Business Development Lead) will follow up shortly.
 
         === PROMPT INSTRUCTION TO MODEL ===
 
-        1. Analyze the following prospect attributes:  
-            - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.  
+        1.  **Strictly adhere to the CORE RULE: CLIENT MENTION & FACTUALITY POLICY at all times.**
+        2.  Analyze the following prospect attributes:
+            - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.
             - From their profile, identify potential pain points and how we can solve them as a staffing company.
-
-        2. Based on this context:  
-            - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.  
-            - Include data-backed results or efficiencies gained from InHousen projects or served clients.  
-            - Ensure the story feels natural and applicable to the reader.
-
-        3. Do NOT:  
-            - Mention “support tickets”.  
-            - Start the email with a title-based intro like “As a Head of Engineering...”  
+        3.  Based on this context:
+            - Craft a first-line hook that reflects a pain point.
+            - Follow the CORE RULE to determine if a client story can be included.
+            - Ensure any story feels natural and applicable to the reader.
+        4.  Do NOT:
+            - Mention “support tickets”.
+            - Start the email with a title-based intro like “As a Head of Engineering...”
             - Push for a meeting in the first email — the goal is awareness and engagement. Instead, suggest that they book a meeting using the link provided if interested.
 
-        4. Clients (Industry-Based Referencing):  
+            === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
 
-            - If relevant client data is available:  
-            - Reference specific clients by name (if appropriate).  
-            - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.  
-            - Ensure the mention feels relevant and natural to the reader’s context.
+            Subject Line Samples for Reference:  
+            [
+            "Accelerate Your [Job Title] - Vetted Developers Available",
+            "Quality Frontend Developers for [Company Name] Growth",
+            "Flexible [Job Title] Solutions for Vallum Associates",
+            "Senior Full Stack Developers for Web3 Projects"
+            ]
 
-            - If no relevant client data is available:  
-            - Do **not** say we’ve worked with "similar companies" or imply industry similarity.  
-            - Do **not** mention any client name.  
-            - Instead, focus on how we can help and highlight our value proposition.
+            Email Sample (for reference only, not to be copied):
+                
+                Hi [First Name],<br><br>
+                I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses to solve [painpoints specific to the prospect's industry].<br><br>
+                Our team guarantees a smooth transition with minimal downtime and full design & data integrity.<br><br>
+                We've also attached our company portfolio—please do take a look to learn more about our work.<br><br>
+                Would love to show you how we can future-proof your online presence.<br><br>
+                Also, my colleague Rounak, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
 
-            - Under **no circumstances** should you:  
-            - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry if we haven’t.  
-            - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
+            === SUBJECT LINE SUGGESTIONS ===  
+                This is the structure to be followed for the subject lines in this email:  
+                - First Name of the prospect + Objective (Accelerate, Quality, Flexible, etc.) + Job Opening + Company Name  
+                - Use the first name of the person, and optionally use the job title from the job opening and how we can help them with that  
+                - First name + the prospect’s requirement
 
-        This logic must be strictly followed to ensure relevance, transparency, and trustworthiness.
-
-        === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
-
-        Subject Line Samples for Reference:  
-        [
-        "Accelerate Your [Job Title] - Vetted Developers Available",
-        "Quality Frontend Developers for [Company Name] Growth",
-        "Flexible [Job Title] Solutions for Vallum Associates",
-        "Senior Full Stack Developers for Web3 Projects"
-        ]
-
-        Email Sample (for reference only, not to be copied):
-            
-            Hi [First Name],<br><br>
-            I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses to solve [painpoints specific to the prospect's industry].<br><br>
-            Our team guarantees a smooth transition with minimal downtime and full design & data integrity.<br><br>
-            We've also attached our company portfolio—please do take a look to learn more about our work.<br><br>
-            Would love to show you how we can future-proof your online presence.<br><br>
-            Also, my colleague Rounak, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
-
-        === SUBJECT LINE SUGGESTIONS ===  
-            This is the structure to be followed for the subject lines in this email:  
-            - First Name of the prospect + Objective (Accelerate, Quality, Flexible, etc.) + Job Opening + Company Name  
-            - Use the first name of the person, and optionally use the job title from the job opening and how we can help them with that  
-            - First name + the prospect’s requirement
-
-        === FINAL NOTES ===  
-            - As a value addition, include this point in the email subtly:  
-            - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.  
-            - Use clear HTML formatting and 2–3 sentence paragraphs.  
-            - Write in a way that feels tailored and human — not like a generic mass email.  
-            - Use the example emails as references — not to be copied directly — to create high-quality, compliant outputs.  
-            - Generate only the email body — do not include any signature or sign-off.  
-            - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
-            - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
-            - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
+            === FINAL NOTES ===  
+                - As a value addition, include this point in the email subtly:  
+                - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.  
+                - Use clear HTML formatting and 2–3 sentence paragraphs.  
+                - Write in a way that feels tailored and human — not like a generic mass email.  
+                - Use the example emails as references — not to be copied directly — to create high-quality, compliant outputs.  
+                - Generate only the email body — do not include any signature or sign-off.  
+                - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+                - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
+                - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
         """
+
+    # @staticmethod
+    # def get_email_template_one():
+    #     """
+    #     This function contains the email template for email sequence 1.
+    #     """
+    #     return """
+    #     EMAIL SEQUENCE: Email 1 of 5 – Initial Outreach
+    #     OBJECTIVE: The objective is to give a warm introduction to the prospect with clear relevance and credibility using a compelling message. We can talk about the pain point the prospect could be facing based on their profile and job openings they have posted, and also mention the summary and name of the relevant client we have already served if the industry of both matches. Also, use a pain point relevant to their industry or business stage.
+
+    #     === STRUCTURE & STRATEGY ===
+
+    #     ➤ SUBJECT LINE
+    #         Craft subject lines that make the prospect want to open the email. Keep them personalized, curiosity-driven, and relevant to the recipient’s role, company, or challenges.
+
+    #     Guidelines:
+    #         - Use their first name, role, or company naturally
+    #         - Keep it short and compelling
+    #         - Make it feel professional, not like a mass email
+    #         - Focus on value, benefit, or intrigue
+    #         - Improve clarity and uniqueness, and always refer to the sample lines
+    #         - The subject lines should be relevant to the pain points for the company and industry
+    #         - Always use client names if we have served clients in a similar industry as that of the prospects
+    #         - Do not use "PS." in this email at any point in the content
+    #         - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) in the email for spacing and formatting. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+    #         - Important Instruction: Do not leave a placeholder for the meeting link in the email content. The meeting link is already embedded in the campaign platform and does not need to be added again.
+
+    #     Avoid: Generic lines like “Accelerate Your Hiring.” Push for specific, thoughtful hooks that spark interest.
+
+    #     ➤ TONE
+    #         - Conversational yet professional: Write as a real human would speak — warm, friendly, informed, confident but not aggressive. There should be very subtle transitions in the email, like starting with pain points, then subtly talking about a success story of a client, and then subtly presenting the value proposition.
+    #         - Avoid stiff corporate speak or overused sales clichés.
+
+    #     ➤ LANGUAGE
+    #         - American English
+    #         - Simple, clear, and persuasive. Avoid buzzwords or unnecessary technical details.
+
+    #     ➤ WORD COUNT
+    #         - Between 100–120 words. Short, readable, and value-packed.
+
+    #     ➤ PERSONALIZATION TRIGGERS (to appear early in the email):
+    #     Craft a concise email that directly addresses the prospect’s key hiring challenges, using insights from the job roles they are actively hiring for. Avoid exaggeration or unsupported claims — only include details that are grounded in the available data.
+    #         - Focus the email body on the specific challenges they might be facing in filling these roles (e.g., speed, quality, niche skills, scaling needs).
+    #         - The email subject line should be creative and attention-grabbing while directly reflecting these pain points — especially those related to difficulty in hiring for the listed positions. Always refer to the sample subject lines.
+    #         - Keep the tone professional but conversational, and include a subtle CTA if relevant.
+    #         - Mention the prospect’s **industry** (e.g., automotive e-commerce, fashion, food delivery). If we have previously served clients in a similar industry, use their name and information to build trust.
+    #         - Include the **specific use case** (e.g., platform migration, checkout speed optimization, design refresh).
+    #         - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”). Only mention this if it's included in the relevant client's data — never falsely mention this information. Never hallucinate or provide incorrect information. Only mention clients and numbers if they are verified and mentioned in the data.
+    #         - The email should always sound human and natural. Avoid making it sound like AI. The tone and flow must be smooth and clear.
+    #         - You can always use this benefit and value proposition in this email: "Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region."
+    #         - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
+    #         - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
+
+    #     ➤ VALUE ANGLE
+    #         - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).
+    #         - In this email, always remember to add this point as a value proposition, in a subtle way:
+    #         - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
+
+    #     ➤ CONTENT FORMAT
+    #         - After subtly introducing the prospect’s pain point, if a relevant client from our database is found, then mention it this way: "We recently helped a [Client Industry] company migrate their system in 30 days, improving efficiency by [XX]%. Thought it might resonate."
+    #         - If no relevant client is found, do not falsely claim that we helped a big company. In that case, simply focus on their pain point and how we can help.
+
+    #     ➤ CLOSING
+    #         - Mention that Rounak (Business Development Lead) will follow up shortly.
+
+    #     === PROMPT INSTRUCTION TO MODEL ===
+
+    #     1. Analyze the following prospect attributes:
+    #         - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.
+    #         - From their profile, identify potential pain points and how we can solve them as a staffing company.
+
+    #     2. Based on this context:
+    #         - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.
+    #         - Include data-backed results or efficiencies gained from InHousen projects or served clients.
+    #         - Ensure the story feels natural and applicable to the reader.
+
+    #     3. Do NOT:
+    #         - Mention “support tickets”.
+    #         - Start the email with a title-based intro like “As a Head of Engineering...”
+    #         - Push for a meeting in the first email — the goal is awareness and engagement. Instead, suggest that they book a meeting using the link provided if interested.
+
+    #     4. Clients (Industry-Based Referencing):
+
+    #         - If relevant client data is available:
+    #         - Reference specific clients by name (if appropriate).
+    #         - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.
+    #         - Ensure the mention feels relevant and natural to the reader’s context.
+
+    #         - If no relevant client data is available:
+    #         - Do **not** say we’ve worked with "similar companies" or imply industry similarity.
+    #         - Do **not** mention any client name.
+    #         - Instead, focus on how we can help and highlight our value proposition.
+
+    #         - Under **no circumstances** should you:
+    #         - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry if we haven’t.
+    #         - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
+
+    #     This logic must be strictly followed to ensure relevance, transparency, and trustworthiness.
+
+    #     === SAMPLE OUTPUT STRUCTURE (Do not copy, for reference only) ===
+
+    #     Subject Line Samples for Reference:
+    #     [
+    #     "Accelerate Your [Job Title] - Vetted Developers Available",
+    #     "Quality Frontend Developers for [Company Name] Growth",
+    #     "Flexible [Job Title] Solutions for Vallum Associates",
+    #     "Senior Full Stack Developers for Web3 Projects"
+    #     ]
+
+    #     Email Sample (for reference only, not to be copied):
+
+    #         Hi [First Name],<br><br>
+    #         I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses to solve [painpoints specific to the prospect's industry].<br><br>
+    #         Our team guarantees a smooth transition with minimal downtime and full design & data integrity.<br><br>
+    #         We've also attached our company portfolio—please do take a look to learn more about our work.<br><br>
+    #         Would love to show you how we can future-proof your online presence.<br><br>
+    #         Also, my colleague Rounak, who leads our business development efforts, will be reaching out to you shortly to assist with any immediate needs or questions.
+
+    #     === SUBJECT LINE SUGGESTIONS ===
+    #         This is the structure to be followed for the subject lines in this email:
+    #         - First Name of the prospect + Objective (Accelerate, Quality, Flexible, etc.) + Job Opening + Company Name
+    #         - Use the first name of the person, and optionally use the job title from the job opening and how we can help them with that
+    #         - First name + the prospect’s requirement
+
+    #     === FINAL NOTES ===
+    #         - As a value addition, include this point in the email subtly:
+    #         - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
+    #         - Use clear HTML formatting and 2–3 sentence paragraphs.
+    #         - Write in a way that feels tailored and human — not like a generic mass email.
+    #         - Use the example emails as references — not to be copied directly — to create high-quality, compliant outputs.
+    #         - Generate only the email body — do not include any signature or sign-off.
+    #         - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+    #         - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
+    #         - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
+    #     """
 
     @staticmethod
     def get_email_template_two():
