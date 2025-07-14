@@ -370,6 +370,8 @@ class EmailSequence(metaclass=Singleton):
             - Reference a **quantifiable result** from a real or simulated past project (e.g., “45% faster checkout”, “0 downtime”, “100% data integrity”). Only mention this if it's included in the relevant client's data — never falsely mention this information. Never hallucinate or provide incorrect information. Only mention clients and numbers if they are verified and mentioned in the data.  
             - The email should always sound human and natural. Avoid making it sound like AI. The tone and flow must be smooth and clear.  
             - You can always use this benefit and value proposition in this email: "Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region."
+            - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
+            - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
 
         ➤ VALUE ANGLE  
             - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).  
@@ -450,6 +452,8 @@ class EmailSequence(metaclass=Singleton):
             - Use the example emails as references — not to be copied directly — to create high-quality, compliant outputs.  
             - Generate only the email body — do not include any signature or sign-off.  
             - Important Note: Ensure the email formatting is clean and professional. Use HTML line breaks (<br>) only where necessary. Maintain proper spacing throughout the email, especially around bullet points. Apply single or double line breaks thoughtfully to enhance readability and structure.
+            - Avoid mentioning any clients we haven’t actually worked with. Only reference real clients we’ve helped—no assumptions or generic claims.
+            - Never include lines like “We recently helped a similar company.” Only mention specific clients we’ve actually worked with—no generic or assumed references.
         """
 
     @staticmethod
