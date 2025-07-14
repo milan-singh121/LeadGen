@@ -89,7 +89,7 @@ class Orchestrator:
         # Loop until 15+ unique companies or 3 total attempts
         counter = 1
         max_attempts = 3
-        min_companies_required = 15
+        min_companies_required = 50
 
         while (
             company_df is not None
