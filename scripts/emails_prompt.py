@@ -373,7 +373,6 @@ class EmailSequence(metaclass=Singleton):
 
         ➤ VALUE ANGLE  
             - Lead with pain points or inefficiencies that are common in the prospect’s industry or tech stack (e.g., legacy platforms, sluggish UX, low conversion rates).  
-            - Immediately follow with a success story or case study that proves InHousen’s capabilities — but only if a relevant client's information is available. Otherwise, focus on how we can help.  
             - In this email, always remember to add this point as a value proposition, in a subtle way:  
             - Access top 1% tech talent in Europe — starting at just €22/hr*. One of the most competitive rates in the region.
 
@@ -387,34 +386,34 @@ class EmailSequence(metaclass=Singleton):
         === PROMPT INSTRUCTION TO MODEL ===
 
         1. Analyze the following prospect attributes:  
-        - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.  
-        - From their profile, identify potential pain points and how we can solve them as a staffing company.
+            - Profile summary, job title, headline, current tech stack (if known), industry, and the job they are hiring for.  
+            - From their profile, identify potential pain points and how we can solve them as a staffing company.
 
         2. Based on this context:  
-        - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.  
-        - Include data-backed results or efficiencies gained from InHousen projects or served clients.  
-        - Ensure the story feels natural and applicable to the reader.
+            - Craft a first-line hook that reflects a pain point and leads into a relevant client success story.  
+            - Include data-backed results or efficiencies gained from InHousen projects or served clients.  
+            - Ensure the story feels natural and applicable to the reader.
 
         3. Do NOT:  
-        - Mention “support tickets”.  
-        - Start the email with a title-based intro like “As a Head of Engineering...”  
-        - Push for a meeting in the first email — the goal is awareness and engagement. Instead, suggest that they book a meeting using the link provided if interested.
+            - Mention “support tickets”.  
+            - Start the email with a title-based intro like “As a Head of Engineering...”  
+            - Push for a meeting in the first email — the goal is awareness and engagement. Instead, suggest that they book a meeting using the link provided if interested.
 
         4. Clients (Industry-Based Referencing):  
 
-        - If relevant client data is available:  
-        - Reference specific clients by name (if appropriate).  
-        - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.  
-        - Ensure the mention feels relevant and natural to the reader’s context.
+            - If relevant client data is available:  
+            - Reference specific clients by name (if appropriate).  
+            - Use relevant and verifiable details — such as quantifiable results, context-specific outcomes, or unique use cases — to build trust and relevance.  
+            - Ensure the mention feels relevant and natural to the reader’s context.
 
-        - If no relevant client data is available:  
-        - Do **not** say we’ve worked with "similar companies" or imply industry similarity.  
-        - Do **not** mention any client name.  
-        - Instead, focus on how we can help and highlight our value proposition.
+            - If no relevant client data is available:  
+            - Do **not** say we’ve worked with "similar companies" or imply industry similarity.  
+            - Do **not** mention any client name.  
+            - Instead, focus on how we can help and highlight our value proposition.
 
-        - Under **no circumstances** should you:  
-        - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry if we haven’t.  
-        - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
+            - Under **no circumstances** should you:  
+            - Fabricate, exaggerate, or generalize client experience to suggest we have served the prospect’s industry if we haven’t.  
+            - Reuse or repeat client names across multiple emails in the sequence unless it adds new and relevant context.
 
         This logic must be strictly followed to ensure relevance, transparency, and trustworthiness.
 
@@ -431,7 +430,7 @@ class EmailSequence(metaclass=Singleton):
         Email Sample (for reference only, not to be copied):
             
             Hi [First Name],<br><br>
-            I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses like yours build and optimize their digital storefronts. Whether it's maintaining your current Lightspeed website or migrating seamlessly to Shopify, we ensure high performance, better UX, and scalable growth.<br><br>
+            I'm Ahmed, Co-founder of InHousen — a Dutch-based tech solutions company. We specialize in helping businesses to solve [painpoints specific to the prospect's industry].<br><br>
             Our team guarantees a smooth transition with minimal downtime and full design & data integrity.<br><br>
             We've also attached our company portfolio—please do take a look to learn more about our work.<br><br>
             Would love to show you how we can future-proof your online presence.<br><br>

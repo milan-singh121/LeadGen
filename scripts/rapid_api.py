@@ -131,8 +131,6 @@ class RapidAPI(metaclass=Singleton):
                 "locationId": location,
                 "datePosted": date_posted,
                 "jobType": job_type,
-                # "experienceLevel": experience_level,
-                # "titleIds": title_id,
                 "functionIds": function_id,
                 "industryIds": industry_id,
                 "onsiteRemote": onsite_remote,
@@ -179,8 +177,6 @@ class RapidAPI(metaclass=Singleton):
             {
                 "keywords": keywords,
                 "start": "0",
-                # "geo": geo,
-                # "keywordTitle": keyword_title,
                 "company": company,
             },
         )
@@ -247,3 +243,16 @@ class RapidAPI(metaclass=Singleton):
         """
 
         return self._make_request("/get-company-details", {"username": username})
+
+    def get_company_posts_by_username(self, username: str):
+        """
+        Fetch company linkedin posts using a LinkedIn Company Username
+
+        Args:
+            username (str): LinkedIn company username
+
+        Returns:
+            Optional[Dict[str, Any]]: Company details.
+        """
+
+        return self._make_request("/get-company-posts", {"username": username})
