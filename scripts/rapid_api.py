@@ -135,7 +135,7 @@ class RapidAPI(metaclass=Singleton):
                 "industryIds": industry_id,
                 "onsiteRemote": onsite_remote,
                 "sort": sort,
-                "start": "25",
+                "start": "0",
             },
         )
 
