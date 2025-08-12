@@ -97,10 +97,8 @@ class PeopleFetcherPipeline:
 
         self.status.write("👥 Finding prospects for jobs without recruiters...")
         search_keywords = [
-            "Human Resource, HR, Talent Acquisition, IT Recruiter",
-            "CTO, Chief Technology Officer, COO, CXO, VP, Vice President",
-            "Founder, Co-Founder, CEO, MD, Director",
-        ]
+            "Human Resource, HR, Talent Acquisition, IT Recruiter, Founder",
+        ]  # "CTO, Chief Technology Officer, COO, CXO, VP, Vice President, Co-Founder, CEO, MD, Director",
         companies = remaining_jobs["company_name"].dropna().unique()
         people_data = [
             person
@@ -212,11 +210,6 @@ class PeopleFetcherPipeline:
         final.drop(
             columns=[col for col in drop_cols if col in final.columns], inplace=True
         )
-        # final = (
-        #     final[final["company"] == final["companyName"]]
-        #     .drop_duplicates(subset=["profileURL"])
-        #     .reset_index(drop=True)
-        # )
         return final
 
     def run(self, final_jobs_df):
