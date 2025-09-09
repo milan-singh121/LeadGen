@@ -122,12 +122,12 @@ class LeadGen(metaclass=Singleton):
             # questionnaire_response = HelperFunctions().get_questionnaire_data(
             #     jobs_df, company_df, final_people, posts_df
             # )
-
+            print(f"Columns in Jobs Data : {jobs_df.columns}")
             st.write("✉️ Generating email sequences...")
             all_emails = GetEmailSequence().generate_email_sequence(
                 final_people, jobs_df, posts_df
             )
-            all_emails = all_emails.dropna().reset_index(drop=True)
+            # all_emails = all_emails.dropna().reset_index(drop=True)
 
             st.write("🧽 Formatting email output...")
             final_emails = GetEmailSequence().format_emails(all_emails)
@@ -148,9 +148,6 @@ class LeadGen(metaclass=Singleton):
             #     right_on="Company Name",
             #     how="left",
             # ).drop(columns="Company Name")
-
-            st.write(f"Unique Columns in final_people data : {final_people.columns}")
-            st.write(f"Unique Columns in final_emails data : {final_emails.columns}")
 
             final_data = pd.merge(
                 final_people,
