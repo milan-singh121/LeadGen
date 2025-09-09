@@ -161,12 +161,23 @@ class LeadGen(metaclass=Singleton):
             jobs_df = jobs_df.rename(
                 columns={"title": "job_opening_title", "company_name": "company"}
             )
+            # final_data = pd.merge(
+            #     final_data,
+            #     jobs_df[["job_opening_title", "job_url", "company"]],
+            #     on=["company"],
+            #     how="left",
+            # )
+
             final_data = pd.merge(
                 final_data,
-                jobs_df[["job_opening_title", "job_url", "company"]],
-                on=["company"],
+                jobs_df[["company", "job_opening_title", "job_url"]],
+                on="company",
                 how="left",
+                suffixes=("", "_dup"),  # avoid _x/_y mess
             )
+
+            # Drop any duplicate columns created in the merge
+            final_data = final_data.loc[:, ~final_data.columns.duplicated()]
 
             final_data = final_data.drop_duplicates(subset=["profileURL"]).reset_index(
                 drop=True
