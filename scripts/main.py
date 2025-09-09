@@ -118,10 +118,10 @@ class LeadGen(metaclass=Singleton):
                 st.warning("⚠️ Process stopped by user.")
                 return pd.DataFrame()
 
-            st.write("🧠 Generating questionnaire summaries...")
-            questionnaire_response = HelperFunctions().get_questionnaire_data(
-                jobs_df, company_df, final_people, posts_df
-            )
+            # st.write("🧠 Generating questionnaire summaries...")
+            # questionnaire_response = HelperFunctions().get_questionnaire_data(
+            #     jobs_df, company_df, final_people, posts_df
+            # )
 
             st.write("✉️ Generating email sequences...")
             all_emails = GetEmailSequence().generate_email_sequence(
@@ -141,13 +141,13 @@ class LeadGen(metaclass=Singleton):
                     )
 
             st.write("🧬 Merging all data...")
-            final_people = pd.merge(
-                final_people,
-                questionnaire_response,
-                left_on="company",
-                right_on="Company Name",
-                how="left",
-            ).drop(columns="Company Name")
+            # final_people = pd.merge(
+            #     final_people,
+            #     questionnaire_response,
+            #     left_on="company",
+            #     right_on="Company Name",
+            #     how="left",
+            # ).drop(columns="Company Name")
 
             final_data = pd.merge(
                 final_people,
