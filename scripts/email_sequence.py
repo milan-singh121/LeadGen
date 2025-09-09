@@ -136,18 +136,53 @@ class GetEmailSequence(metaclass=Singleton):
         for _, row in final_people.iterrows():
             try:
                 first_name = row["firstName"]
+
+                print(f"Generating for {first_name}")
+
                 last_name = row["lastName"]
+
+                print(f"Generating for {last_name}")
+
                 profile_url = row["profileURL"]
+
+                print(f"Generating for {profile_url}")
+
                 username = row["username"]
+
+                print(f"Generating for {username}")
                 headline = row.get("headline", "")
+
+                print(f"Generating for {headline}")
+
                 summary = row.get("summary", "")
+
+                print(f"Generating for {summary}")
+
                 full_positions = row.get("processed_fullPositions", "")
+
+                print(f"Generating for {full_positions}")
+
                 skills = row.get("clean_skills", "")
+
+                print(f"Generating for {skills}")
+
                 title = row.get("title", "")
+
+                print(f"Generating for {title}")
+
                 company_industry = row.get("companyIndustry", "")
+
+                print(f"Generating for {company_industry}")
+
                 company = row.get("company", "")
+
+                print(f"Generating for {company}")
+
                 job_data = jobs_df[jobs_df["company_name"] == company]
+                print(f"Generating for {job_data}")
+
                 description = row.get("description", "")
+                print(f"Generating for {description}")
 
                 if not posts_df.empty:
                     posts = posts_df[posts_df["username"] == username]
@@ -174,11 +209,10 @@ class GetEmailSequence(metaclass=Singleton):
                 )
 
                 email_system_prompt = email_seq_obj.get_email_system_prompt(first_name)
+
                 email_seq = claude.get_claude_sonnet35_response(
                     email_system_prompt, email_user_prompt
                 )
-
-                print(email_seq)
 
                 cleaned_emails = self.extract_emails(email_seq)
 
@@ -192,6 +226,8 @@ class GetEmailSequence(metaclass=Singleton):
                         for email in cleaned_emails
                     }
                 )
+
+                print(flattened)
 
                 emails_df = pd.DataFrame([flattened])
                 emails_df["First Name"] = first_name
