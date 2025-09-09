@@ -149,6 +149,9 @@ class LeadGen(metaclass=Singleton):
             #     how="left",
             # ).drop(columns="Company Name")
 
+            st.write(f"Unique Columns in final_people data : {final_people.columns}")
+            st.write(f"Unique Columns in final_emails data : {final_emails.columns}")
+
             final_data = pd.merge(
                 final_people,
                 final_emails,
