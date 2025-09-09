@@ -178,6 +178,8 @@ class GetEmailSequence(metaclass=Singleton):
                     email_system_prompt, email_user_prompt
                 )
 
+                print(email_seq)
+
                 cleaned_emails = self.extract_emails(email_seq)
 
                 flattened = {
