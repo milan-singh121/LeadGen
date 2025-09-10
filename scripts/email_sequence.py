@@ -149,13 +149,13 @@ class GetEmailSequence(metaclass=Singleton):
                 job_data = jobs_df[jobs_df["company_name"] == company]
                 description = row.get("description", "")
 
-                if not posts_df.empty:
-                    posts = posts_df[posts_df["username"] == username]
-                    _, recent_posts = helper.clean_data_for_questionnaire(
-                        final_people, posts
-                    )
-                else:
-                    recent_posts = []
+                # if not posts_df.empty:
+                #     posts = posts_df[posts_df["username"] == username]
+                #     _, recent_posts = helper.clean_data_for_questionnaire(
+                #         final_people, posts
+                #     )
+                # else:
+                #     recent_posts = []
 
                 email_user_prompt = email_seq_obj.get_email_user_prompt(
                     first_name,
@@ -167,7 +167,7 @@ class GetEmailSequence(metaclass=Singleton):
                     title,
                     description,
                     full_positions,
-                    recent_posts,
+                    None,  # recent_posts,
                     job_data,
                 )
 
@@ -185,6 +185,7 @@ class GetEmailSequence(metaclass=Singleton):
                     f"Subject {email['sequence']}": email["subject"]
                     for email in cleaned_emails
                 }
+
                 flattened.update(
                     {
                         f"Email Body {email['sequence']}": email["body"]
@@ -210,4 +211,6 @@ class GetEmailSequence(metaclass=Singleton):
             return pd.DataFrame()  # Return empty if none succeeded
 
         all_emails = pd.concat(emails_dataframe, ignore_index=True)
+        all_emails = all_emails.loc[:, ~all_emails.columns.duplicated()]
         return all_emails
+        # return all_emails

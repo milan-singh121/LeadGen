@@ -122,12 +122,12 @@ class LeadGen(metaclass=Singleton):
             # questionnaire_response = HelperFunctions().get_questionnaire_data(
             #     jobs_df, company_df, final_people, posts_df
             # )
-            print(f"Columns in Jobs Data : {jobs_df.columns}")
+
             st.write("✉️ Generating email sequences...")
             all_emails = GetEmailSequence().generate_email_sequence(
                 final_people, jobs_df, posts_df
             )
-            # all_emails = all_emails.dropna().reset_index(drop=True)
+            all_emails = all_emails.dropna().reset_index(drop=True)
 
             st.write("🧽 Formatting email output...")
             final_emails = GetEmailSequence().format_emails(all_emails)
@@ -161,20 +161,20 @@ class LeadGen(metaclass=Singleton):
             jobs_df = jobs_df.rename(
                 columns={"title": "job_opening_title", "company_name": "company"}
             )
-            # final_data = pd.merge(
-            #     final_data,
-            #     jobs_df[["job_opening_title", "job_url", "company"]],
-            #     on=["company"],
-            #     how="left",
-            # )
-
             final_data = pd.merge(
                 final_data,
-                jobs_df[["company", "job_opening_title", "job_url"]],
-                on="company",
+                jobs_df[["job_opening_title", "job_url", "company"]],
+                on=["company"],
                 how="left",
-                suffixes=("", "_dup"),  # avoid _x/_y mess
             )
+
+            # final_data = pd.merge(
+            #     final_data,
+            #     jobs_df[["company", "job_opening_title", "job_url"]],
+            #     on="company",
+            #     how="left",
+            #     suffixes=("", "_dup"),  # avoid _x/_y mess
+            # )
 
             # Drop any duplicate columns created in the merge
             final_data = final_data.loc[:, ~final_data.columns.duplicated()]

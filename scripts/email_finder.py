@@ -338,7 +338,7 @@ class SnovEmailFinder(metaclass=Singleton):
                 flattened = self.flatten_person_data(url_result.get("data", None))
                 flattened["profileURL"] = linkedin_url
                 email_records.append(flattened)
-                logger.info(f"Email data fetched for {linkedin_url}, {flattened}")
+                # logger.info(f"Email data fetched for {linkedin_url}, {flattened}")
             except Exception as e:
                 if logger:
                     logger.error(f"Error processing URL {linkedin_url}: {e}")
